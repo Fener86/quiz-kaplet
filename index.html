@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -11,11 +10,9 @@
 body{font-family:'Roboto',sans-serif;background:#f7f8fc;color:#1a1a2e;min-height:100vh}
 
 /* HEADER */
-.header{background:#fff;border-bottom:1px solid #e8eaf0;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.header-logo{display:flex;align-items:center;gap:12px}
-.header-logo svg{height:28px}
-.header-logo .logo-text{font-size:18px;font-weight:700;color:#0D1B6E;letter-spacing:1px}
-.header-badge{font-size:11px;font-weight:500;color:#0D1B6E;background:#e8ecf8;padding:4px 12px;border-radius:999px;letter-spacing:0.5px}
+.header{background:#fff;border-bottom:1px solid #e8eaf0;padding:0 2.5rem;height:72px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header-logo{display:flex;align-items:center;gap:14px}
+.header-badge{font-size:11px;font-weight:600;color:#0D1B6E;background:#e8ecf8;padding:5px 14px;border-radius:999px;letter-spacing:1px;text-transform:uppercase}
 
 /* WRAP */
 .wrap{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
@@ -125,14 +122,14 @@ body{font-family:'Roboto',sans-serif;background:#f7f8fc;color:#1a1a2e;min-height
 <!-- HEADER -->
 <header class="header">
   <div class="header-logo">
-    <!-- Logo Kaplet SVG semplificato con le forme del logo -->
-    <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="8" cy="12" r="4" fill="#0D1B6E"/>
-      <rect x="4" y="18" width="8" height="3" fill="#0D1B6E"/>
-      <line x1="8" y1="21" x2="3" y2="32" stroke="#0D1B6E" stroke-width="3"/>
-      <line x1="8" y1="21" x2="13" y2="32" stroke="#0D1B6E" stroke-width="3"/>
-      <text x="22" y="28" font-family="Roboto,sans-serif" font-weight="700" font-size="18" fill="#0D1B6E" letter-spacing="2">KAPLET</text>
+    <!-- Icona persona stilizzata Kaplet -->
+    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:36px;width:36px">
+      <circle cx="22" cy="9" r="5" fill="#0D1B6E"/>
+      <rect x="8" y="17" width="28" height="5" rx="2.5" fill="#0D1B6E"/>
+      <path d="M22 22 L10 38" stroke="#0D1B6E" stroke-width="5" stroke-linecap="round"/>
+      <path d="M22 22 L34 38" stroke="#0D1B6E" stroke-width="5" stroke-linecap="round"/>
     </svg>
+    <span style="font-size:26px;font-weight:700;color:#0D1B6E;letter-spacing:3px;font-family:'Roboto',sans-serif">KAPLET</span>
   </div>
   <span class="header-badge">Onboarding Valutation</span>
 </header>
