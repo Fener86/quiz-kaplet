@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Networking Base — Kaplet</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f5;color:#1a1a1a;min-height:100vh}
+.wrap{max-width:700px;margin:0 auto;padding:2rem 1rem}
+.logo{text-align:center;margin-bottom:2rem}
+.logo h1{font-size:22px;font-weight:600;color:#1a1a1a}
+.logo p{font-size:14px;color:#666;margin-top:4px}
+.card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:1.5rem;margin-bottom:1rem}
+label{font-size:13px;color:#555;display:block;margin-bottom:5px;margin-top:12px}
+label:first-child{margin-top:0}
+input{width:100%;padding:9px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;color:#1a1a1a;background:#fff}
+input:focus{outline:none;border-color:#378ADD}
+.err{font-size:13px;color:#c0392b;margin-top:8px}
+.btn-primary{display:inline-block;padding:10px 26px;background:#378ADD;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;margin-top:16px}
+.btn-primary:hover{background:#185FA5}
+.btn-secondary{display:inline-block;padding:10px 26px;background:#fff;color:#1a1a1a;border:1px solid #ccc;border-radius:8px;font-size:14px;cursor:pointer;margin-top:16px}
+.btn-secondary:hover{background:#f5f5f5}
+.note{font-size:12px;color:#888;margin-top:14px;line-height:1.6}
+.prog-wrap{height:6px;background:#eee;border-radius:3px;margin-bottom:1.5rem;overflow:hidden}
+.prog-fill{height:100%;background:#378ADD;border-radius:3px;transition:width 0.3s}
+.q-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.q-cat{font-size:12px;padding:3px 10px;border-radius:6px;background:#f0f0f0;color:#555}
+.q-num{font-size:13px;color:#888}
+.q-text{font-size:15px;font-weight:500;line-height:1.5;margin-bottom:1rem}
+.opt{display:block;width:100%;text-align:left;padding:10px 14px;margin-bottom:8px;background:#f8f8f8;border:1px solid #e5e5e5;border-radius:8px;font-size:14px;color:#1a1a1a;cursor:pointer;transition:background 0.15s}
+.opt:hover:not(:disabled){background:#eef5fc}
+.opt.correct{background:#eafaf1;border-color:#27ae60;color:#1e8449}
+.opt.wrong{background:#fdedec;border-color:#e74c3c;color:#c0392b}
+.opt.reveal{background:#eafaf1;border-color:#27ae60;color:#1e8449}
+.opt:disabled{cursor:default}
+.feedback{font-size:13px;color:#555;margin-top:10px;padding:10px 14px;background:#f8f8f8;border-radius:8px;border-left:3px solid #ccc;line-height:1.6}
+.nav-row{display:flex;justify-content:flex-end;margin-top:12px}
+.score-big{font-size:52px;font-weight:600;text-align:center;line-height:1}
+.score-sub{font-size:14px;color:#888;text-align:center;margin-top:4px}
+.verdict{display:inline-block;padding:6px 20px;border-radius:999px;font-size:14px;font-weight:500}
+.cat-grid{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem}
+.cat-pill{flex:1;min-width:110px;background:#f8f8f8;border:1px solid #e5e5e5;border-radius:8px;padding:10px 12px;text-align:center}
+.cat-pill .cl{font-size:11px;color:#888}
+.cat-pill .cv{font-size:20px;font-weight:500;margin-top:2px}
+.review-item{display:flex;gap:8px;align-items:flex-start}
+.review-ok{font-size:13px;min-width:20px;color:#27ae60;font-weight:600}
+.review-err{font-size:13px;min-width:20px;color:#e74c3c;font-weight:600}
+.email-status{margin-top:14px;font-size:13px;padding:8px 14px;border-radius:8px;display:inline-block}
+.es-sending{background:#eef5fc;color:#185FA5}
+.es-sent{background:#eafaf1;color:#1e8449}
+.es-error{background:#fdedec;color:#c0392b}
+.btn-row{display:flex;gap:10px;justify-content:center;margin-top:1.5rem;flex-wrap:wrap}
+@media print{
+  body{background:#fff}
+  .btn-row{display:none}
+  .prog-wrap{display:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">
+    <h1>Kaplet — Quiz di valutazione tecnica</h1>
+    <p>Networking base · 30 domande a risposta multipla</p>
+  </div>
+  <div id="app"></div>
+</div>
+
+<script>
+const EMAILJS_SERVICE = "service_it8h9pa";
+const EMAILJS_TEMPLATE = "template_ylarf5y";
+const EMAILJS_KEY = "BFRiR1c_sncLKV-cp";
+
+const ALL_QUESTIONS = [
+  {cat:"IP",q:"Cosa identifica un indirizzo IP?",opts:["Un dispositivo su una rete","Il produttore della scheda di rete","La velocità di connessione","Il protocollo di trasmissione"],a:0,exp:"L'indirizzo IP identifica univocamente un dispositivo all'interno di una rete."},
+  {cat:"IP",q:"Quanti bit compongono un indirizzo IPv4?",opts:["16 bit","32 bit","64 bit","128 bit"],a:1,exp:"IPv4 usa 32 bit, rappresentati come 4 ottetti decimali separati da punti."},
+  {cat:"IP",q:"Quanti bit compongono un indirizzo IPv6?",opts:["32 bit","64 bit","128 bit","256 bit"],a:2,exp:"IPv6 usa 128 bit, scritti in notazione esadecimale separata da due punti."},
+  {cat:"IP",q:"Quale dei seguenti è un indirizzo IP privato di classe A?",opts:["192.168.1.1","172.16.0.1","10.0.0.1","8.8.8.8"],a:2,exp:"Il range 10.0.0.0/8 è il blocco privato di classe A secondo RFC 1918."},
+  {cat:"IP",q:"Quale dei seguenti è un indirizzo IP privato di classe C?",opts:["10.0.0.1","172.16.0.1","192.168.1.1","169.254.1.1"],a:2,exp:"Il range 192.168.0.0/16 è riservato alle reti private di classe C."},
+  {cat:"IP",q:"Cosa si intende per indirizzo IP pubblico?",opts:["Un IP usato solo in rete locale","Un IP raggiungibile da Internet","Un IP assegnato dal router","Un IP di broadcast"],a:1,exp:"Un IP pubblico è instradabile su Internet e assegnato da un ISP o registro regionale."},
+  {cat:"IP",q:"Qual è l'indirizzo di loopback in IPv4?",opts:["192.168.0.1","0.0.0.0","255.255.255.255","127.0.0.1"],a:3,exp:"127.0.0.1 (localhost) è l'indirizzo di loopback: il traffico non lascia il dispositivo."},
+  {cat:"IP",q:"Cosa indica il prefisso /24 in notazione CIDR?",opts:["24 host disponibili","24 bit di subnet mask","24 reti disponibili","24 byte di dati"],a:1,exp:"/24 significa che i primi 24 bit identificano la rete, lasciando 8 bit per gli host."},
+  {cat:"IP",q:"Quale classe di indirizzi IP va da 128.0.0.0 a 191.255.255.255?",opts:["Classe A","Classe B","Classe C","Classe D"],a:1,exp:"La classe B copre il range 128.0.0.0–191.255.255.255."},
+  {cat:"IP",q:"Qual è l'indirizzo di broadcast di una rete 192.168.1.0/24?",opts:["192.168.1.0","192.168.1.1","192.168.1.254","192.168.1.255"],a:3,exp:"L'indirizzo broadcast è l'ultimo IP della sottorete, con tutti i bit host a 1."},
+  {cat:"IP",q:"Cosa si intende per indirizzo APIPA?",opts:["Un IP assegnato da un server DHCP remoto","Un IP auto-assegnato nel range 169.254.x.x quando il DHCP non risponde","Un IP riservato ai server","Un IP di multicast"],a:1,exp:"APIPA assegna automaticamente un IP 169.254.x.x quando non è disponibile un server DHCP."},
+  {cat:"IP",q:"Quale range è riservato al multicast in IPv4?",opts:["10.0.0.0 – 10.255.255.255","172.16.0.0 – 172.31.255.255","224.0.0.0 – 239.255.255.255","240.0.0.0 – 255.255.255.255"],a:2,exp:"Il range 224.0.0.0–239.255.255.255 è riservato agli indirizzi multicast (classe D)."},
+  {cat:"IP",q:"Cos'è il NAT (Network Address Translation)?",opts:["Un protocollo per cifrare il traffico","Una tecnica che traduce IP privati in IP pubblici","Un tipo di routing statico","Un metodo per assegnare MAC address"],a:1,exp:"Il NAT traduce indirizzi IP privati in IP pubblici, permettendo a più dispositivi di condividere una connessione Internet."},
+  {cat:"IP",q:"Cosa significa TTL in un pacchetto IP?",opts:["Tempo totale di latenza","Numero massimo di hop prima che il pacchetto venga scartato","Tipo di protocollo trasportato","Dimensione massima del pacchetto"],a:1,exp:"TTL è un contatore decrementato da ogni router: quando raggiunge 0 il pacchetto viene scartato."},
+  {cat:"IP",q:"Quale indirizzo IPv4 rappresenta il broadcast limitato?",opts:["0.0.0.0","127.0.0.1","255.255.255.255","192.168.0.0"],a:2,exp:"255.255.255.255 è il broadcast limitato: raggiunge tutti gli host della rete locale."},
+  {cat:"IP",q:"Quanti indirizzi IP totali contiene una rete /28?",opts:["8","16","32","64"],a:1,exp:"/28 lascia 4 bit per gli host: 2^4 = 16 indirizzi totali."},
+  {cat:"Subnet",q:"A cosa serve la subnet mask?",opts:["Filtrare il traffico web","Distinguere la parte di rete dalla parte host","Assegnare automaticamente gli IP","Crittografare i dati"],a:1,exp:"La subnet mask separa la porzione di rete dalla porzione host di un indirizzo IP."},
+  {cat:"Subnet",q:"Qual è la subnet mask corrispondente a /24?",opts:["255.0.0.0","255.255.0.0","255.255.255.0","255.255.255.255"],a:2,exp:"255.255.255.0 ha 24 bit a '1', corrispondente a /24 in CIDR."},
+  {cat:"Subnet",q:"Quanti host utilizzabili offre una rete /24?",opts:["256","255","254","128"],a:2,exp:"256 indirizzi totali meno 1 rete e 1 broadcast = 254 host utilizzabili."},
+  {cat:"Subnet",q:"Quale subnet mask corrisponde a /16?",opts:["255.255.0.0","255.255.255.0","255.0.0.0","255.255.255.128"],a:0,exp:"255.255.0.0 ha 16 bit a '1', corrispondente a /16 in CIDR."},
+  {cat:"Subnet",q:"Cosa si ottiene applicando la subnet mask all'IP con un AND bit a bit?",opts:["L'indirizzo del gateway","L'indirizzo di rete","L'indirizzo broadcast","Il numero di host"],a:1,exp:"L'AND bit a bit tra IP e subnet mask restituisce l'indirizzo di rete."},
+  {cat:"Subnet",q:"Una rete 192.168.1.0/25 quanti host utilizzabili ha?",opts:["126","128","254","62"],a:0,exp:"/25 lascia 7 bit host: 128 indirizzi totali, meno 2 = 126 host utilizzabili."},
+  {cat:"Subnet",q:"Cosa indica la notazione 192.168.10.0/30?",opts:["Rete con 30 host","Rete con 2 host utilizzabili","Rete con 254 host","Rete di loopback"],a:1,exp:"/30 ha 4 indirizzi totali, 2 utilizzabili. Tipico per link punto-punto."},
+  {cat:"Subnet",q:"Quale subnet mask corrisponde a /8?",opts:["255.255.255.0","255.255.0.0","255.0.0.0","255.128.0.0"],a:2,exp:"255.0.0.0 ha 8 bit a '1', corrispondente a /8 in CIDR (classe A)."},
+  {cat:"Subnet",q:"Quanti host utilizzabili offre una rete /30?",opts:["2","4","6","30"],a:0,exp:"/30 ha 4 indirizzi totali: 1 rete, 1 broadcast, 2 host utilizzabili."},
+  {cat:"Subnet",q:"Quale subnet mask corrisponde a /28?",opts:["255.255.255.192","255.255.255.224","255.255.255.240","255.255.255.248"],a:2,exp:"255.255.255.240 ha 28 bit a '1', lasciando 4 bit per gli host."},
+  {cat:"Subnet",q:"Che cosa si intende per supernetting?",opts:["Dividere una rete in sottoreti più piccole","Aggregare più reti in un unico blocco più grande","Assegnare IP statici a tutti gli host","Configurare più gateway su un host"],a:1,exp:"Il supernetting combina più reti contigue in un unico prefisso più grande."},
+  {cat:"Subnet",q:"Quante sottoreti /26 si possono ricavare da una rete /24?",opts:["2","4","8","16"],a:1,exp:"Da /24 a /26 si aggiungono 2 bit di rete: 2^2 = 4 sottoreti /26."},
+  {cat:"Gateway",q:"Cos'è il default gateway?",opts:["Il server DNS principale","Il router che instrada il traffico verso reti esterne","Il server DHCP della rete","Il firewall aziendale"],a:1,exp:"Il default gateway è il router a cui si inviano i pacchetti destinati a reti diverse dalla propria."},
+  {cat:"Gateway",q:"Quando un host usa il default gateway?",opts:["Per comunicare con host nella stessa rete","Per risolvere i nomi DNS","Per comunicare con host fuori dalla propria sottorete","Per ottenere un IP"],a:2,exp:"Se la destinazione non è nella stessa rete locale, il pacchetto viene inviato al gateway."},
+  {cat:"Gateway",q:"Su quale livello OSI opera tipicamente un router?",opts:["Livello 1 — fisico","Livello 2 — data link","Livello 3 — rete","Livello 4 — trasporto"],a:2,exp:"I router operano al livello 3 (rete), analizzando gli IP per instradare i pacchetti."},
+  {cat:"Gateway",q:"Se il default gateway non è raggiungibile, cosa non riesce a fare un host?",opts:["Comunicare nella LAN","Comunicare con reti esterne","Accedere al DNS locale","Ottenere un IP dal DHCP"],a:1,exp:"Senza gateway l'host può comunicare in LAN, ma non raggiunge reti esterne o Internet."},
+  {cat:"Gateway",q:"Quale comando Windows mostra il default gateway?",opts:["ping gateway","ipconfig","netstat -r","tracert 8.8.8.8"],a:1,exp:"Il comando 'ipconfig' mostra la configurazione di rete incluso il default gateway."},
+  {cat:"Gateway",q:"Cosa fa il comando tracert/traceroute?",opts:["Mostra la velocità della connessione","Mostra il percorso hop per hop verso la destinazione","Risolve un nome DNS","Mostra le porte aperte su un host"],a:1,exp:"Tracert/traceroute mostra ogni router attraversato per raggiungere la destinazione."},
+  {cat:"Gateway",q:"Cosa si intende per routing statico?",opts:["Route apprese automaticamente","Route configurate manualmente dall'amministratore","Route assegnate dal DHCP","Route apprese tramite ARP"],a:1,exp:"Il routing statico prevede route configurate manualmente, senza protocolli di routing dinamico."},
+  {cat:"Gateway",q:"Qual è la funzione principale del protocollo ARP?",opts:["Tradurre nomi di dominio in IP","Assegnare IP dinamicamente","Risolvere indirizzi IP in indirizzi MAC","Cifrare il traffico di rete"],a:2,exp:"ARP traduce un indirizzo IP in un indirizzo MAC nella stessa rete locale."},
+  {cat:"Gateway",q:"Cosa indica una metrica di routing più bassa?",opts:["Un percorso meno preferito","Un percorso preferito rispetto ad altri","Una connessione più lenta","Un gateway non raggiungibile"],a:1,exp:"Una metrica più bassa indica un percorso preferito nelle tabelle di routing."},
+  {cat:"DNS/DHCP",q:"Cosa fa il protocollo DNS?",opts:["Assegna indirizzi IP dinamici","Traduce nomi di dominio in IP","Cifra il traffico web","Instrada i pacchetti tra reti"],a:1,exp:"Il DNS risolve nomi leggibili (es. google.com) nei corrispondenti indirizzi IP."},
+  {cat:"DNS/DHCP",q:"Qual è la porta standard del DNS?",opts:["Porta 80","Porta 443","Porta 53","Porta 25"],a:2,exp:"Il DNS usa la porta UDP 53 per le query standard."},
+  {cat:"DNS/DHCP",q:"Cosa fa il server DHCP?",opts:["Traduce nomi in IP","Assegna automaticamente IP e parametri di rete","Filtra i pacchetti in entrata","Autentica gli utenti"],a:1,exp:"Il DHCP assegna dinamicamente IP, subnet mask, gateway e DNS agli host."},
+  {cat:"DNS/DHCP",q:"Quale messaggio DHCP invia per primo un client?",opts:["DHCP Offer","DHCP Request","DHCP Discover","DHCP Ack"],a:2,exp:"Il client invia un DHCP Discover in broadcast per trovare server DHCP disponibili."},
+  {cat:"DNS/DHCP",q:"Cosa succede se il DHCP non è raggiungibile e non c'è IP statico?",opts:["Il dispositivo ottiene IP 0.0.0.0","Il dispositivo usa un IP APIPA (169.254.x.x)","Il dispositivo si disconnette","Il dispositivo usa l'ultimo IP noto"],a:1,exp:"In assenza di DHCP viene assegnato un IP APIPA nel range 169.254.0.0/16."},
+  {cat:"DNS/DHCP",q:"Cosa si intende per lease time nel DHCP?",opts:["Il tempo dell'handshake TCP","La durata per cui un IP viene assegnato a un client","Il tempo di risposta del DNS","L'intervallo tra due richieste ARP"],a:1,exp:"Il lease time è il periodo di validità dell'IP assegnato dal DHCP."},
+  {cat:"DNS/DHCP",q:"Cos'è un record DNS di tipo A?",opts:["Associa un nome a un IPv6","Associa un nome a un IPv4","Definisce il server di posta","Crea un alias per un altro nome"],a:1,exp:"Il record A mappa un nome di dominio a un indirizzo IPv4."},
+  {cat:"DNS/DHCP",q:"Cos'è un record DNS di tipo AAAA?",opts:["Associa un nome a un IPv4","Associa un nome a un IPv6","Definisce 4 server DNS alternativi","È un record obsoleto"],a:1,exp:"Il record AAAA mappa un nome di dominio a un indirizzo IPv6."},
+  {cat:"DNS/DHCP",q:"Cos'è la DNS cache su un client?",opts:["Un database di tutti i nomi DNS mondiali","Una memoria temporanea delle risoluzioni DNS già effettuate","Il file di configurazione del server DNS","Una lista di IP bloccati"],a:1,exp:"La DNS cache memorizza temporaneamente le risoluzioni per ridurre le query ripetute."},
+  {cat:"DNS/DHCP",q:"Quale comando Windows svuota la cache DNS locale?",opts:["ipconfig /flushdns","nslookup /clear","netstat -f","ping /clearcache"],a:0,exp:"Il comando 'ipconfig /flushdns' svuota la cache DNS del resolver locale di Windows."},
+  {cat:"DNS/DHCP",q:"Cosa fa il comando nslookup?",opts:["Mostra la tabella ARP","Interroga un server DNS per risolvere un nome o IP","Mostra le connessioni TCP attive","Configura il DHCP client"],a:1,exp:"nslookup interroga manualmente un server DNS per risolvere nomi in IP o fare query inverse."},
+  {cat:"Base",q:"Cos'è un indirizzo MAC?",opts:["Un indirizzo IP privato","Un identificatore fisico univoco della scheda di rete","Il nome del dispositivo in rete","Il numero di serie del router"],a:1,exp:"Il MAC è un indirizzo hardware a 48 bit assegnato alla scheda di rete dal produttore."},
+  {cat:"Base",q:"A quale livello OSI opera uno switch non gestito (layer 2)?",opts:["Livello 1","Livello 2","Livello 3","Livello 4"],a:1,exp:"Uno switch L2 opera al livello data link e instrada i frame usando la tabella MAC."},
+  {cat:"Base",q:"Cosa verifica il comando ping?",opts:["La velocità della connessione","La raggiungibilità di un host e il tempo di risposta","L'apertura delle porte","La configurazione DNS"],a:1,exp:"Ping invia pacchetti ICMP Echo Request e misura il tempo di risposta."},
+  {cat:"Base",q:"Cos'è una VLAN?",opts:["Una rete wireless virtuale","Una rete locale virtuale che segmenta logicamente una rete fisica","Un tipo di cavo Ethernet","Un protocollo di routing"],a:1,exp:"Una VLAN suddivide logicamente una rete fisica in più reti separate."},
+  {cat:"Base",q:"Qual è la differenza principale tra LAN e WAN?",opts:["La LAN è wireless, la WAN è cablata","La LAN copre un'area limitata, la WAN copre aree estese","La LAN è più lenta della WAN","Non c'è differenza"],a:1,exp:"LAN copre un'area ristretta, WAN si estende su aree geografiche vaste."},
+  {cat:"Base",q:"Quanti livelli ha il modello OSI?",opts:["4","5","7","10"],a:2,exp:"Il modello OSI è composto da 7 livelli: fisico, data link, rete, trasporto, sessione, presentazione, applicazione."},
+  {cat:"Base",q:"Quale protocollo usa TCP per stabilire una connessione?",opts:["One-way handshake","Two-way handshake","Three-way handshake","Four-way handshake"],a:2,exp:"TCP usa un three-way handshake (SYN, SYN-ACK, ACK) per stabilire una connessione affidabile."},
+  {cat:"Base",q:"Qual è la differenza principale tra TCP e UDP?",opts:["TCP è più veloce di UDP","TCP è affidabile con controllo errori, UDP è più veloce ma senza garanzie","UDP è obsoleto","Non c'è differenza"],a:1,exp:"TCP garantisce consegna ordinata; UDP è più veloce ma senza garanzie di consegna."},
+  {cat:"Base",q:"Su quale porta opera il protocollo HTTP?",opts:["Porta 21","Porta 25","Porta 80","Porta 443"],a:2,exp:"HTTP opera sulla porta TCP 80."},
+  {cat:"Base",q:"Su quale porta opera il protocollo HTTPS?",opts:["Porta 80","Porta 443","Porta 8080","Porta 8443"],a:1,exp:"HTTPS opera sulla porta TCP 443, cifrando il traffico con TLS."},
+  {cat:"Base",q:"Cos'è un hub di rete?",opts:["Un dispositivo che instrada pacchetti come un router","Un dispositivo che ripete il segnale a tutti i dispositivi connessi","Un dispositivo che segmenta la rete in VLAN","Un tipo di access point Wi-Fi"],a:1,exp:"Un hub opera al livello 1 e trasmette ogni frame a tutte le porte, a differenza dello switch."},
+  {cat:"Base",q:"Cosa si intende per half-duplex?",opts:["Trasmissione in un solo senso","Trasmissione bidirezionale ma non contemporanea","Trasmissione bidirezionale e simultanea","Un tipo di cablaggio Ethernet"],a:1,exp:"In half-duplex la comunicazione è bidirezionale ma non simultanea; full-duplex è bidirezionale e simultanea."},
+  {cat:"Base",q:"Qual è la velocità standard di una porta Ethernet Gigabit?",opts:["10 Mbps","100 Mbps","1000 Mbps","10000 Mbps"],a:2,exp:"Gigabit Ethernet offre velocità di 1000 Mbps = 1 Gbps."},
+  {cat:"Base",q:"Cosa fa il protocollo ICMP?",opts:["Trasferisce file tra host","Invia messaggi di controllo ed errore relativi alla rete","Assegna indirizzi IP","Cifra le comunicazioni"],a:1,exp:"ICMP è usato per messaggi diagnostici e di errore, come quelli generati da ping e traceroute."},
+  {cat:"Base",q:"Cos'è una DMZ in ambito networking?",opts:["Una zona LAN senza Wi-Fi","Una sottorete separata che espone servizi pubblici proteggendo la rete interna","Un tipo di VPN","Un protocollo di routing dinamico"],a:1,exp:"La DMZ è una sottorete intermedia tra Internet e la rete interna, dove si collocano server pubblici."}
+];
+
+const CATS=["IP","Subnet","Gateway","DNS/DHCP","Base"];
+const CAT_LABELS={IP:"Indirizzamento IP",Subnet:"Subnet Mask",Gateway:"Gateway & Routing","DNS/DHCP":"DNS & DHCP",Base:"Concetti base"};
+const PER_CAT={IP:8,Subnet:7,Gateway:5,"DNS/DHCP":5,Base:5};
+
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function pickQ(){const p=[];CATS.forEach(c=>{const pool=ALL_QUESTIONS.filter(q=>q.cat===c);p.push(...shuffle(pool).slice(0,PER_CAT[c]));});return shuffle(p);}
+function genCode(){return Math.random().toString(36).substr(2,8).toUpperCase();}
+
+let state={phase:"info",form:{nome:"",cognome:"",data:""},questions:[],current:0,answers:{},chosen:null,score:0,code:genCode(),emailStatus:"idle"};
+
+function h(tag,attrs,children){
+  const el=document.createElement(tag);
+  if(attrs)Object.entries(attrs).forEach(([k,v])=>{if(k==="className")el.className=v;else if(k.startsWith("on"))el.addEventListener(k.slice(2).toLowerCase(),v);else el.setAttribute(k,v);});
+  if(children){if(Array.isArray(children))children.forEach(c=>c&&el.appendChild(typeof c==="string"?document.createTextNode(c):c));else el.appendChild(typeof children==="string"?document.createTextNode(children):children);}
+  return el;
+}
+
+async function sendEmail(){
+  const cs={};CATS.forEach(c=>{cs[c]={ok:0,tot:0};});
+  state.questions.forEach((q,i)=>{cs[q.cat].tot++;if(state.answers[i]===q.a)cs[q.cat].ok++;});
+  const det=CATS.map(c=>`${CAT_LABELS[c]}: ${cs[c].ok}/${cs[c].tot}`).join("\n");
+  const fs=Object.keys(state.answers).filter(i=>state.answers[i]===state.questions[i].a).length;
+  const vd=fs<=15?"Insufficiente":fs<=22?"Sufficiente":fs<=27?"Buono":"Ottimo";
+  const res=await fetch("https://api.emailjs.com/api/v1.0/email/send",{
+    method:"POST",headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({service_id:EMAILJS_SERVICE,template_id:EMAILJS_TEMPLATE,user_id:EMAILJS_KEY,
+      template_params:{nome:state.form.nome,cognome:state.form.cognome,data:state.form.data,codice:state.code,punteggio:String(fs),giudizio:vd,dettaglio:det}})
+  });
+  if(!res.ok)throw new Error("err");
+}
+
+function render(){
+  const app=document.getElementById("app");
+  app.innerHTML="";
+  if(state.phase==="info")app.appendChild(renderInfo());
+  else if(state.phase==="quiz")app.appendChild(renderQuiz());
+  else app.appendChild(renderResult());
+}
+
+function renderInfo(){
+  const wrap=document.createElement("div");
+  wrap.className="card";
+  wrap.innerHTML=`
+    <label>Nome</label>
+    <input id="f-nome" type="text" value="${state.form.nome}" placeholder="Es. Marco">
+    <label>Cognome</label>
+    <input id="f-cognome" type="text" value="${state.form.cognome}" placeholder="Es. Rossi">
+    <label>Data</label>
+    <input id="f-data" type="date" value="${state.form.data}">
+    <div id="f-err" class="err" style="display:none"></div>
+    <p class="note">Le domande vengono selezionate casualmente da una banca di ${ALL_QUESTIONS.length} domande. Ogni sessione è diversa dalla precedente.</p>
+  `;
+  const btn=h("button",{className:"btn-primary",onClick:()=>{
+    const n=document.getElementById("f-nome").value.trim();
+    const c=document.getElementById("f-cognome").value.trim();
+    const d=document.getElementById("f-data").value;
+    const err=document.getElementById("f-err");
+    if(!n||!c||!d){err.textContent="Compila tutti i campi per iniziare.";err.style.display="block";return;}
+    state.form={nome:n,cognome:c,data:d};
+    state.questions=pickQ();state.current=0;state.answers={};state.chosen=null;state.score=0;
+    state.phase="quiz";render();
+  }},"Inizia il quiz →");
+  wrap.appendChild(btn);
+  return wrap;
+}
+
+function renderQuiz(){
+  const frag=document.createDocumentFragment();
+  const q=state.questions[state.current];
+  const pct=Math.round((state.current/state.questions.length)*100);
+
+  const meta=h("div",{style:"display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem"},[
+    h("span",{style:"font-size:14px;color:#666"},`${state.form.nome} ${state.form.cognome}`),
+    h("span",{style:"font-size:13px;color:#888"},`${state.current+1} / ${state.questions.length}`)
+  ]);
+  const prog=h("div",{className:"prog-wrap"},[h("div",{className:"prog-fill",style:`width:${pct}%`})]);
+  frag.appendChild(meta);frag.appendChild(prog);
+
+  const card=h("div",{className:"card"});
+  const qmeta=h("div",{className:"q-meta"},[
+    h("span",{className:"q-cat"},CAT_LABELS[q.cat]),
+    h("span",{className:"q-num"},`Domanda ${state.current+1}`)
+  ]);
+  card.appendChild(qmeta);
+  card.appendChild(h("div",{className:"q-text"},q.q));
+
+  q.opts.forEach((o,i)=>{
+    let cls="opt";
+    if(state.chosen!==null){if(i===q.a)cls+=" correct";else if(i===state.chosen&&state.chosen!==q.a)cls+=" wrong";}
+    const btn=h("button",{className:cls,onClick:()=>{
+      if(state.chosen!==null)return;
+      state.chosen=i;state.answers[state.current]=i;
+      if(i===q.a)state.score++;
+      render();
+    }},`${String.fromCharCode(65+i)}. ${o}`);
+    if(state.chosen!==null)btn.disabled=true;
+    card.appendChild(btn);
+  });
+
+  if(state.chosen!==null){
+    card.appendChild(h("div",{className:"feedback"},`${state.chosen===q.a?"✓ Corretto! ":"✗ Risposta errata. "}${q.exp}`));
+    const nav=h("div",{className:"nav-row"});
+    const nb=h("button",{className:"btn-primary",onClick:()=>{
+      if(state.current<state.questions.length-1){state.current++;state.chosen=null;render();}
+      else{state.phase="result";state.emailStatus="sending";render();sendEmail().then(()=>{state.emailStatus="sent";render();}).catch(()=>{state.emailStatus="error";render();});}
+    }},state.current<state.questions.length-1?"Prossima →":"Vedi risultato →");
+    nav.appendChild(nb);card.appendChild(nav);
+  }
+  frag.appendChild(card);
+  return frag;
+}
+
+function renderResult(){
+  const frag=document.createDocumentFragment();
+  const cs={};CATS.forEach(c=>{cs[c]={ok:0,tot:0};});
+  state.questions.forEach((q,i)=>{cs[q.cat].tot++;if(state.answers[i]===q.a)cs[q.cat].ok++;});
+  const fs=Object.keys(state.answers).filter(i=>state.answers[i]===state.questions[i].a).length;
+  const vd=fs<=15?{l:"Insufficiente",c:"#c0392b",bg:"#fdedec"}:fs<=22?{l:"Sufficiente",c:"#d35400",bg:"#fef5e7"}:fs<=27?{l:"Buono",c:"#1e8449",bg:"#eafaf1"}:{l:"Ottimo",c:"#0e6655",bg:"#e8f8f5"};
+
+  const top=h("div",{className:"card",style:"text-align:center"});
+  top.appendChild(h("div",{style:"font-size:13px;color:#888;margin-bottom:4px"},`Codice sessione: ${state.code}`));
+  top.appendChild(h("div",{style:"font-size:15px;font-weight:600;margin-bottom:2px"},`${state.form.nome} ${state.form.cognome}`));
+  top.appendChild(h("div",{style:"font-size:13px;color:#888;margin-bottom:16px"},state.form.data));
+  top.appendChild(h("div",{className:"score-big"},[`${fs}`,h("span",{style:"font-size:28px;color:#888"},`/${state.questions.length}`)]));
+  top.appendChild(h("div",{className:"score-sub"},`${Math.round((fs/state.questions.length)*100)}% di risposte corrette`));
+  top.appendChild(h("span",{className:"verdict",style:`background:${vd.bg};color:${vd.c}`},vd.l));
+  top.appendChild(h("div",{style:"font-size:12px;color:#888;margin-top:8px"},"0–15 Insufficiente · 16–22 Sufficiente · 23–27 Buono · 28–30 Ottimo"));
+
+  const esCls=state.emailStatus==="sending"?"es-sending":state.emailStatus==="sent"?"es-sent":"es-error";
+  const esToxt=state.emailStatus==="sending"?"⏳ Invio risultati in corso...":state.emailStatus==="sent"?"✓ Risultati inviati via email al responsabile":"⚠ Invio email fallito — salva il PDF manualmente";
+  if(state.emailStatus!=="idle")top.appendChild(h("div",{className:`email-status ${esCls}`},esToxt));
+  frag.appendChild(top);
+
+  frag.appendChild(h("div",{style:"font-size:14px;font-weight:500;color:#666;margin-bottom:8px"},"Punteggio per categoria"));
+  const grid=h("div",{className:"cat-grid"});
+  CATS.forEach(c=>{
+    const p=h("div",{className:"cat-pill"});
+    p.appendChild(h("div",{className:"cl"},CAT_LABELS[c]));
+    p.appendChild(h("div",{className:"cv"},`${cs[c].ok}/${cs[c].tot}`));
+    grid.appendChild(p);
+  });
+  frag.appendChild(grid);
+
+  frag.appendChild(h("div",{style:"font-size:14px;font-weight:500;color:#666;margin-bottom:8px"},"Riepilogo risposte"));
+  state.questions.forEach((q,i)=>{
+    const ok=state.answers[i]===q.a;
+    const card=h("div",{className:"card",style:"padding:0.9rem 1.2rem;margin-bottom:8px"});
+    const row=h("div",{className:"review-item"});
+    row.appendChild(h("span",{className:ok?"review-ok":"review-err"},ok?"✓":"✗"));
+    const info=h("div",{style:"flex:1"});
+    info.appendChild(h("div",{style:"font-size:13px;font-weight:500;margin-bottom:3px"},q.q));
+    if(!ok)info.appendChild(h("div",{style:"font-size:12px;color:#c0392b"},`Risposta data: ${q.opts[state.answers[i]]}`));
+    info.appendChild(h("div",{style:"font-size:12px;color:#27ae60"},`Corretta: ${q.opts[q.a]}`));
+    row.appendChild(info);
+    row.appendChild(h("span",{style:"font-size:11px;padding:2px 8px;border-radius:6px;background:#f0f0f0;color:#666;white-space:nowrap"},CAT_LABELS[q.cat]));
+    card.appendChild(row);frag.appendChild(card);
+  });
+
+  const btnRow=h("div",{className:"btn-row"});
+  btnRow.appendChild(h("button",{className:"btn-secondary",onClick:()=>window.print()},"Stampa / Salva PDF"));
+  btnRow.appendChild(h("button",{className:"btn-primary",onClick:()=>{
+    state={phase:"info",form:{nome:"",cognome:"",data:""},questions:[],current:0,answers:{},chosen:null,score:0,code:genCode(),emailStatus:"idle"};
+    render();
+  }},"Nuovo test"));
+  frag.appendChild(btnRow);
+  return frag;
+}
+
+render();
+</script>
+</body>
+</html>
