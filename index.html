@@ -8,16 +8,10 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Roboto',sans-serif;background:#f7f8fc;color:#1a1a2e;min-height:100vh}
-
-/* HEADER */
 .header{background:#fff;border-bottom:1px solid #e8eaf0;padding:0 2.5rem;height:72px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .header-logo{display:flex;align-items:center;gap:14px}
 .header-badge{font-size:11px;font-weight:600;color:#0D1B6E;background:#e8ecf8;padding:5px 14px;border-radius:999px;letter-spacing:1px;text-transform:uppercase}
-
-/* WRAP */
 .wrap{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
-
-/* INTRO PAGE */
 .intro-hero{text-align:center;padding:2.5rem 0 2rem}
 .intro-hero .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0D1B6E;background:#e8ecf8;padding:5px 16px;border-radius:999px;margin-bottom:20px}
 .intro-hero h1{font-size:32px;font-weight:700;color:#0D1B6E;line-height:1.2;margin-bottom:12px}
@@ -28,10 +22,7 @@ body{font-family:'Roboto',sans-serif;background:#f7f8fc;color:#1a1a2e;min-height
 .intro-card-text h3{font-size:14px;font-weight:600;color:#0D1B6E;margin-bottom:4px}
 .intro-card-text p{font-size:13px;color:#666;line-height:1.6}
 .warning-strip{background:#fff8e1;border:1px solid #ffe082;border-left:4px solid #f59e0b;border-radius:8px;padding:1rem 1.25rem;font-size:13px;color:#7a5100;line-height:1.6;margin-bottom:2rem}
-.warning-strip strong{font-weight:600}
 .cta-center{text-align:center}
-
-/* FORM PAGE */
 .form-card{background:#fff;border:1px solid #e8eaf0;border-radius:16px;padding:2rem;margin-bottom:1.5rem}
 .form-card h2{font-size:20px;font-weight:700;color:#0D1B6E;margin-bottom:6px}
 .form-card .sub{font-size:14px;color:#888;margin-bottom:1.5rem}
@@ -39,21 +30,15 @@ body{font-family:'Roboto',sans-serif;background:#f7f8fc;color:#1a1a2e;min-height
 .field label{font-size:13px;font-weight:500;color:#444;display:block;margin-bottom:6px}
 .field input{width:100%;padding:10px 14px;border:1.5px solid #dde1ef;border-radius:8px;font-size:14px;font-family:'Roboto',sans-serif;color:#1a1a2e;background:#fff;transition:border-color 0.2s}
 .field input:focus{outline:none;border-color:#0D1B6E}
-
-/* BUTTONS */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:600;font-family:'Roboto',sans-serif;cursor:pointer;transition:all 0.2s;border:none}
 .btn-primary{background:#0D1B6E;color:#fff}
 .btn-primary:hover{background:#0a1558}
 .btn-outline{background:#fff;color:#0D1B6E;border:1.5px solid #0D1B6E}
 .btn-outline:hover{background:#e8ecf8}
 .btn-lg{padding:14px 36px;font-size:15px;border-radius:10px}
-
-/* ERRORS */
 .err{font-size:13px;color:#c0392b;margin-top:8px;display:none}
-
-/* QUIZ */
 .quiz-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.quiz-name{font-size:14px;color:#666;font-weight:400}
+.quiz-name{font-size:14px;color:#666}
 .quiz-right{display:flex;align-items:center;gap:12px}
 .quiz-counter{font-size:13px;color:#999}
 .timer{font-size:14px;font-weight:700;padding:6px 14px;border-radius:8px;border:2px solid #0D1B6E;color:#0D1B6E;background:#e8ecf8;font-family:'Roboto',sans-serif}
@@ -62,19 +47,37 @@ body{font-family:'Roboto',sans-serif;background:#f7f8fc;color:#1a1a2e;min-height
 .prog-wrap{height:4px;background:#e8eaf0;border-radius:2px;margin-bottom:2rem;overflow:hidden}
 .prog-fill{height:100%;background:#0D1B6E;border-radius:2px;transition:width 0.4s}
 .q-card{background:#fff;border:1px solid #e8eaf0;border-radius:16px;padding:2rem}
-.q-cat-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#0D1B6E;background:#e8ecf8;padding:4px 12px;border-radius:999px;margin-bottom:16px}
-.q-text{font-size:16px;font-weight:500;color:#1a1a2e;line-height:1.6;margin-bottom:1.5rem}
-.opt{display:block;width:100%;text-align:left;padding:12px 16px;margin-bottom:10px;background:#f7f8fc;border:1.5px solid #e8eaf0;border-radius:10px;font-size:14px;font-family:'Roboto',sans-serif;color:#1a1a2e;cursor:pointer;transition:all 0.15s;font-weight:400}
+.q-tags{display:flex;gap:8px;align-items:center;margin-bottom:16px}
+.q-cat-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#0D1B6E;background:#e8ecf8;padding:4px 12px;border-radius:999px}
+.q-multi-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#7c3aed;background:#ede9fe;padding:4px 12px;border-radius:999px}
+.q-text{font-size:16px;font-weight:500;color:#1a1a2e;line-height:1.6;margin-bottom:6px}
+.q-hint{font-size:13px;color:#888;margin-bottom:1.25rem;font-style:italic}
+/* Risposta singola */
+.opt{display:block;width:100%;text-align:left;padding:12px 16px;margin-bottom:10px;background:#f7f8fc;border:1.5px solid #e8eaf0;border-radius:10px;font-size:14px;font-family:'Roboto',sans-serif;color:#1a1a2e;cursor:pointer;transition:all 0.15s}
 .opt:hover:not(:disabled){background:#e8ecf8;border-color:#0D1B6E}
 .opt.correct{background:#f0fdf4;border-color:#16a34a;color:#15803d;font-weight:500}
 .opt.wrong{background:#fef2f2;border-color:#dc2626;color:#b91c1c;font-weight:500}
 .opt:disabled{cursor:default}
+/* Risposta multipla */
+.mopt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:12px 16px;margin-bottom:10px;background:#f7f8fc;border:1.5px solid #e8eaf0;border-radius:10px;font-size:14px;font-family:'Roboto',sans-serif;color:#1a1a2e;cursor:pointer;transition:all 0.15s;user-select:none}
+.mopt:hover:not(.disabled){background:#ede9fe;border-color:#7c3aed}
+.mopt.selected{background:#ede9fe;border-color:#7c3aed;color:#5b21b6;font-weight:500}
+.mopt.correct-checked{background:#f0fdf4;border-color:#16a34a;color:#15803d;font-weight:500}
+.mopt.wrong-checked{background:#fef2f2;border-color:#dc2626;color:#b91c1c;font-weight:500}
+.mopt.correct-missed{background:#fef9c3;border-color:#ca8a04;color:#92400e;font-weight:500}
+.mopt.disabled{cursor:default}
+.mopt-box{width:18px;height:18px;border:2px solid #7c3aed;border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s}
+.mopt.selected .mopt-box{background:#7c3aed}
+.mopt.correct-checked .mopt-box{background:#16a34a;border-color:#16a34a}
+.mopt.wrong-checked .mopt-box{background:#dc2626;border-color:#dc2626}
+.mopt.correct-missed .mopt-box{background:#ca8a04;border-color:#ca8a04}
+.confirm-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;font-family:'Roboto',sans-serif;cursor:pointer;background:#7c3aed;color:#fff;border:none;margin-top:8px;transition:background 0.2s}
+.confirm-btn:hover{background:#6d28d9}
+.confirm-btn:disabled{background:#c4b5fd;cursor:default}
 .feedback{font-size:13px;color:#444;margin-top:14px;padding:12px 16px;background:#f7f8fc;border-radius:10px;border-left:4px solid #0D1B6E;line-height:1.7}
 .feedback.ok{border-left-color:#16a34a;background:#f0fdf4;color:#166534}
 .feedback.ko{border-left-color:#dc2626;background:#fef2f2;color:#991b1b}
 .nav-row{display:flex;justify-content:flex-end;margin-top:1.5rem}
-
-/* RESULT */
 .result-hero{background:#fff;border:1px solid #e8eaf0;border-radius:16px;padding:2.5rem;text-align:center;margin-bottom:1.5rem}
 .result-code{font-size:12px;color:#aaa;margin-bottom:6px;letter-spacing:1px}
 .result-name{font-size:17px;font-weight:600;color:#1a1a2e;margin-bottom:2px}
@@ -89,14 +92,11 @@ body{font-family:'Roboto',sans-serif;background:#f7f8fc;color:#1a1a2e;min-height
 .eb-sending{background:#e8ecf8;color:#0D1B6E}
 .eb-sent{background:#f0fdf4;color:#15803d}
 .eb-error{background:#fef2f2;color:#b91c1c}
-
-.cat-section{margin-bottom:1.5rem}
 .sec-label{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#aaa;margin-bottom:10px}
-.cat-grid{display:flex;gap:10px;flex-wrap:wrap}
+.cat-grid{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2rem}
 .cat-pill{flex:1;min-width:120px;background:#fff;border:1px solid #e8eaf0;border-radius:12px;padding:12px 14px;text-align:center}
 .cat-pill .cl{font-size:11px;color:#aaa;font-weight:500}
 .cat-pill .cv{font-size:22px;font-weight:700;color:#0D1B6E;margin-top:4px}
-
 .review-list{display:flex;flex-direction:column;gap:10px;margin-bottom:2rem}
 .review-item{background:#fff;border:1px solid #e8eaf0;border-radius:12px;padding:1rem 1.25rem;display:flex;gap:10px;align-items:flex-start}
 .ri-icon{font-size:14px;font-weight:700;min-width:20px;margin-top:1px}
@@ -107,22 +107,15 @@ body{font-family:'Roboto',sans-serif;background:#f7f8fc;color:#1a1a2e;min-height
 .ri-wrong{font-size:12px;color:#dc2626;margin-bottom:2px}
 .ri-right{font-size:12px;color:#16a34a}
 .ri-cat{font-size:11px;padding:2px 10px;border-radius:999px;background:#e8ecf8;color:#0D1B6E;white-space:nowrap;font-weight:500;align-self:flex-start;flex-shrink:0}
-
 .btn-row{display:flex;gap:12px;justify-content:center;margin-top:2rem;flex-wrap:wrap}
-
-/* FOOTER */
 .footer{text-align:center;padding:2rem 0 1rem;font-size:12px;color:#ccc}
-
 @media(max-width:600px){.intro-grid{grid-template-columns:1fr}.btn-row{flex-direction:column;align-items:center}}
 @media print{.header,.btn-row,.timer,.prog-wrap,.footer{display:none}body{background:#fff}.wrap{padding:1rem}}
 </style>
 </head>
 <body>
-
-<!-- HEADER -->
 <header class="header">
   <div class="header-logo">
-    <!-- Icona persona stilizzata Kaplet -->
     <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:36px;width:36px">
       <circle cx="22" cy="9" r="5" fill="#0D1B6E"/>
       <rect x="8" y="17" width="28" height="5" rx="2.5" fill="#0D1B6E"/>
@@ -133,133 +126,200 @@ body{font-family:'Roboto',sans-serif;background:#f7f8fc;color:#1a1a2e;min-height
   </div>
   <span class="header-badge">Onboarding Valutation</span>
 </header>
-
-<div class="wrap">
-  <div id="app"></div>
-</div>
-
+<div class="wrap"><div id="app"></div></div>
 <div class="footer">© Kaplet — Uso interno</div>
 
 <script>
-const EMAILJS_SERVICE="service_it8h9pa";
-const EMAILJS_TEMPLATE="template_ylarf5y";
-const EMAILJS_KEY="BFRiR1c_sncLKV-cp";
-const TOTAL_TIME=30*60;
+const EMAILJS_SERVICE="service_it8h9pa",EMAILJS_TEMPLATE="template_ylarf5y",EMAILJS_KEY="BFRiR1c_sncLKV-cp",TOTAL_TIME=30*60;
 
+// type: "single" o "multi" (multi ha array a:[])
 const NETWORKING_Q=[
-  {cat:"Networking",q:"Cosa identifica un indirizzo IP all'interno di una rete?",opts:["Un dispositivo connesso alla rete","Il produttore della scheda di rete","La velocità massima di connessione","Il protocollo di trasmissione usato"],a:0,exp:"L'indirizzo IP identifica univocamente un dispositivo all'interno di una rete, permettendo la comunicazione tra dispositivi diversi."},
-  {cat:"Networking",q:"Quanti bit compongono un indirizzo IPv4?",opts:["16 bit","32 bit","64 bit","128 bit"],a:1,exp:"IPv4 utilizza indirizzi a 32 bit, rappresentati come 4 ottetti decimali separati da punti (es. 192.168.1.1)."},
-  {cat:"Networking",q:"Quanti bit compongono un indirizzo IPv6?",opts:["32 bit","64 bit","128 bit","256 bit"],a:2,exp:"IPv6 utilizza indirizzi a 128 bit, scritti in notazione esadecimale separata da due punti."},
-  {cat:"Networking",q:"Quale dei seguenti è un indirizzo IP privato appartenente alla classe A?",opts:["192.168.1.1","172.16.0.1","10.0.0.1","8.8.8.8"],a:2,exp:"Il range 10.0.0.0/8 è il blocco di indirizzi privati di classe A definito dalla RFC 1918."},
-  {cat:"Networking",q:"Quale dei seguenti è un indirizzo IP privato appartenente alla classe C?",opts:["10.0.0.1","172.16.0.1","192.168.1.1","169.254.1.1"],a:2,exp:"Il range 192.168.0.0/16 è riservato alle reti private di classe C secondo RFC 1918."},
-  {cat:"Networking",q:"Cosa si intende per indirizzo IP pubblico?",opts:["Un IP usato esclusivamente in rete locale","Un IP instradabile e raggiungibile da Internet","Un IP assegnato automaticamente dal router","Un IP riservato al broadcast di rete"],a:1,exp:"Un IP pubblico è un indirizzo instradabile su Internet, assegnato da un ISP o da un registro regionale."},
-  {cat:"Networking",q:"Qual è l'indirizzo di loopback standard in IPv4?",opts:["192.168.0.1","0.0.0.0","255.255.255.255","127.0.0.1"],a:3,exp:"127.0.0.1 (localhost) è l'indirizzo di loopback: qualsiasi traffico inviato a questo indirizzo non lascia mai il dispositivo."},
-  {cat:"Networking",q:"Cosa indica esattamente il prefisso /24 nella notazione CIDR?",opts:["Il numero massimo di host disponibili","I primi 24 bit dell'indirizzo identificano la rete","Il numero di reti disponibili","I byte di payload del pacchetto"],a:1,exp:"In notazione CIDR, /24 significa che i primi 24 bit identificano la rete, lasciando 8 bit per gli indirizzi host."},
-  {cat:"Networking",q:"Qual è l'indirizzo di broadcast di una rete con range 192.168.1.0/24?",opts:["192.168.1.0","192.168.1.1","192.168.1.254","192.168.1.255"],a:3,exp:"L'indirizzo broadcast è sempre l'ultimo indirizzo della sottorete, con tutti i bit host impostati a 1."},
-  {cat:"Networking",q:"Cosa si intende con il termine APIPA (Automatic Private IP Addressing)?",opts:["IP assegnato da un server DHCP remoto","IP auto-assegnato nel range 169.254.x.x in assenza di server DHCP","IP riservato esclusivamente ai server aziendali","IP utilizzato per le comunicazioni multicast"],a:1,exp:"APIPA assegna automaticamente un IP nel range 169.254.0.0/16 quando il client non riesce a raggiungere un server DHCP."},
-  {cat:"Networking",q:"A quale range di indirizzi appartengono gli indirizzi multicast in IPv4?",opts:["10.0.0.0 - 10.255.255.255","172.16.0.0 - 172.31.255.255","224.0.0.0 - 239.255.255.255","240.0.0.0 - 255.255.255.255"],a:2,exp:"Il range 224.0.0.0 - 239.255.255.255 è riservato agli indirizzi multicast IPv4, classificati come classe D."},
-  {cat:"Networking",q:"Cosa fa il NAT (Network Address Translation)?",opts:["Cifra il traffico di rete tra due endpoint","Traduce indirizzi IP privati in IP pubblici per accedere a Internet","Definisce percorsi statici nelle tabelle di routing","Assegna indirizzi MAC univoci ai dispositivi"],a:1,exp:"Il NAT traduce gli indirizzi IP privati della rete locale in uno o più IP pubblici, permettendo a più dispositivi di condividere una singola connessione Internet."},
-  {cat:"Networking",q:"Cosa rappresenta il campo TTL (Time To Live) in un pacchetto IP?",opts:["Il tempo totale di latenza della connessione","Il numero massimo di hop che il pacchetto può attraversare prima di essere scartato","Il tipo di protocollo incapsulato nel pacchetto","La dimensione massima consentita per il pacchetto"],a:1,exp:"TTL è un contatore decrementato di 1 da ogni router attraversato. Quando raggiunge 0 il pacchetto viene scartato, evitando loop di routing infiniti."},
-  {cat:"Networking",q:"Quanti indirizzi IP totali (inclusi rete e broadcast) contiene una rete /28?",opts:["8","16","32","64"],a:1,exp:"Una rete /28 lascia 4 bit per gli host: 2^4 = 16 indirizzi totali, di cui 14 utilizzabili per gli host."},
-  {cat:"Networking",q:"Qual è lo scopo principale della subnet mask in una configurazione di rete?",opts:["Filtrare il traffico indesiderato proveniente da Internet","Separare la parte di rete dalla parte host dell'indirizzo IP","Assegnare automaticamente gli IP ai dispositivi della rete","Cifrare i dati trasmessi tra due host"],a:1,exp:"La subnet mask, applicata con un AND logico all'indirizzo IP, consente di separare la porzione di rete dalla porzione host."},
-  {cat:"Networking",q:"Quale subnet mask in formato decimale corrisponde al prefisso /24?",opts:["255.0.0.0","255.255.0.0","255.255.255.0","255.255.255.255"],a:2,exp:"255.255.255.0 ha esattamente 24 bit impostati a 1, corrispondente al prefisso /24 nella notazione CIDR."},
-  {cat:"Networking",q:"Quanti host sono effettivamente utilizzabili in una rete con prefisso /24?",opts:["256","255","254","128"],a:2,exp:"Una rete /24 contiene 256 indirizzi totali. Sottraendo 1 per la rete e 1 per il broadcast rimangono 254 host utilizzabili."},
-  {cat:"Networking",q:"In una rete 192.168.1.0/25, quanti host sono effettivamente utilizzabili?",opts:["126","128","254","62"],a:0,exp:"Con /25 rimangono 7 bit per gli host: 2^7 = 128 indirizzi totali. Sottraendo rete e broadcast = 126 host utilizzabili."},
-  {cat:"Networking",q:"Qual è la caratteristica principale di una rete con notazione 192.168.10.0/30?",opts:["Contiene 30 host utilizzabili","Contiene solo 2 host utilizzabili, ideale per link punto-punto","Contiene 254 host utilizzabili come una /24","È un indirizzo di loopback esteso"],a:1,exp:"Una rete /30 ha 4 indirizzi totali: 1 indirizzo di rete, 1 broadcast e 2 host utilizzabili. È lo standard per i link punto-punto tra router."},
-  {cat:"Networking",q:"Qual è la funzione principale del default gateway in una rete locale?",opts:["Fornire indirizzi IP ai client tramite DHCP","Instradare il traffico destinato a reti diverse da quella locale","Risolvere i nomi di dominio in indirizzi IP","Proteggere la rete locale da accessi non autorizzati"],a:1,exp:"Il default gateway è il router a cui vengono inviati tutti i pacchetti destinati a reti diverse da quella locale, fungendo da 'porta di uscita'."},
-  {cat:"Networking",q:"Su quale livello del modello OSI operano tipicamente i router?",opts:["Livello 1 — Fisico","Livello 2 — Data Link","Livello 3 — Rete","Livello 4 — Trasporto"],a:2,exp:"I router operano al livello 3 (Rete) del modello OSI, analizzando gli indirizzi IP per prendere decisioni di instradamento."},
-  {cat:"Networking",q:"Quale comando Windows permette di visualizzare l'indirizzo del default gateway configurato?",opts:["ping gateway","ipconfig","netstat -r","tracert 8.8.8.8"],a:1,exp:"Il comando 'ipconfig' mostra la configurazione completa delle interfacce di rete del sistema, incluso il default gateway."},
-  {cat:"Networking",q:"Qual è la funzione principale del protocollo DNS?",opts:["Assegnare automaticamente indirizzi IP ai dispositivi","Tradurre i nomi di dominio leggibili in indirizzi IP numerici","Cifrare il traffico tra browser e server web","Instradare i pacchetti tra reti diverse"],a:1,exp:"Il DNS (Domain Name System) è il sistema che traduce i nomi di dominio (es. google.com) nei corrispondenti indirizzi IP."},
-  {cat:"Networking",q:"Su quale porta di trasporto opera il protocollo DNS per le query standard?",opts:["Porta TCP 80","Porta TCP 443","Porta UDP 53","Porta TCP 25"],a:2,exp:"Il DNS utilizza la porta UDP 53 per le query standard di risoluzione dei nomi. Usa TCP 53 per i trasferimenti di zona."},
-  {cat:"Networking",q:"Qual è il ruolo di un server DHCP in una rete?",opts:["Tradurre i nomi di dominio in indirizzi IP","Assegnare automaticamente IP, subnet mask, gateway e DNS ai client","Filtrare il traffico in ingresso e in uscita","Autenticare gli utenti prima dell'accesso alla rete"],a:1,exp:"Il server DHCP (Dynamic Host Configuration Protocol) assegna dinamicamente ai client tutti i parametri di configurazione di rete necessari."},
-  {cat:"Networking",q:"Qual è il primo messaggio inviato da un client per iniziare la procedura di assegnazione DHCP?",opts:["DHCP Offer","DHCP Request","DHCP Discover","DHCP Acknowledge"],a:2,exp:"Il client invia un DHCP Discover in broadcast per segnalare la propria presenza e trovare i server DHCP disponibili nella rete."},
-  {cat:"Networking",q:"Cos'è un indirizzo MAC e a cosa serve?",opts:["Un indirizzo IP privato usato in reti locali","Un identificatore hardware univoco a 48 bit assegnato alla scheda di rete","Il nome del dispositivo assegnato durante la configurazione","Il numero di serie del router o switch a cui è connesso il dispositivo"],a:1,exp:"Il MAC (Media Access Control) address è un identificatore hardware a 48 bit assegnato in fabbrica alla scheda di rete, usato per la comunicazione al livello Data Link."},
-  {cat:"Networking",q:"Cosa testa e misura il comando ping?",opts:["La velocità massima della connessione internet","La raggiungibilità di un host remoto e il tempo di risposta in millisecondi","L'apertura o la chiusura delle porte TCP di un host","La corretta configurazione del server DNS"],a:1,exp:"Il comando ping invia pacchetti ICMP Echo Request e misura il tempo di risposta (RTT), verificando se un host è raggiungibile."},
-  {cat:"Networking",q:"Cos'è una VLAN e qual è il suo principale vantaggio?",opts:["Una rete wireless virtuale che non richiede access point fisici","Una segmentazione logica di una rete fisica in più reti virtuali separate","Un tipo di cavo Ethernet schermato per alte velocità","Un protocollo di routing per reti geograficamente distribuite"],a:1,exp:"Una VLAN (Virtual LAN) permette di suddividere logicamente una rete fisica in più reti separate, migliorando sicurezza, gestibilità e performance."},
-  {cat:"Networking",q:"Quanti livelli compone il modello OSI (Open Systems Interconnection)?",opts:["4 livelli","5 livelli","7 livelli","10 livelli"],a:2,exp:"Il modello OSI è composto da 7 livelli: Fisico, Data Link, Rete, Trasporto, Sessione, Presentazione e Applicazione."},
-  {cat:"Networking",q:"Qual è la differenza fondamentale tra i protocolli TCP e UDP?",opts:["TCP è più veloce di UDP grazie alla compressione dei dati","TCP garantisce la consegna ordinata con controllo degli errori; UDP è più veloce ma senza garanzie","UDP è un protocollo obsoleto sostituito da TCP","Non esiste differenza sostanziale tra i due protocolli"],a:1,exp:"TCP offre connessione affidabile con handshake, controllo degli errori e ritrasmissione; UDP è connectionless, più veloce ma senza garanzie di consegna."},
-  {cat:"Networking",q:"Su quale porta TCP opera il protocollo HTTP per le connessioni non cifrate?",opts:["Porta TCP 21","Porta TCP 25","Porta TCP 80","Porta TCP 443"],a:2,exp:"Il protocollo HTTP (HyperText Transfer Protocol) opera sulla porta TCP 80 per le connessioni non cifrate."},
-  {cat:"Networking",q:"Su quale porta TCP opera il protocollo HTTPS per le connessioni cifrate?",opts:["Porta TCP 80","Porta TCP 443","Porta TCP 8080","Porta TCP 8443"],a:1,exp:"HTTPS (HTTP Secure) opera sulla porta TCP 443, cifrando il traffico tramite il protocollo TLS."},
-  {cat:"Networking",q:"Qual è la funzione principale del protocollo ARP (Address Resolution Protocol)?",opts:["Tradurre nomi di dominio in indirizzi IP","Assegnare indirizzi IP dinamici ai dispositivi","Risolvere un indirizzo IP in un indirizzo MAC nella stessa rete locale","Cifrare il traffico tra due host della stessa rete"],a:2,exp:"ARP risolve un indirizzo IP noto in un indirizzo MAC, consentendo la comunicazione al livello Data Link nella stessa rete locale."},
-  {cat:"Networking",q:"Cosa mostra il comando tracert (Windows) o traceroute (Linux/Mac)?",opts:["La velocità attuale della connessione internet","Il percorso completo dei pacchetti, hop per hop, verso la destinazione con i relativi tempi","Il risultato della risoluzione DNS di un hostname","L'elenco delle porte TCP aperte su un host remoto"],a:1,exp:"Tracert/traceroute mostra ogni router attraversato (hop) e il relativo tempo di risposta per raggiungere la destinazione."},
-  {cat:"Networking",q:"Quale subnet mask in formato decimale corrisponde al prefisso /16?",opts:["255.255.0.0","255.255.255.0","255.0.0.0","255.255.255.128"],a:0,exp:"255.255.0.0 ha esattamente 16 bit impostati a 1, corrispondente al prefisso /16 nella notazione CIDR."},
-  {cat:"Networking",q:"Cos'è una DMZ (DeMilitarized Zone) in un'architettura di rete aziendale?",opts:["Una zona della LAN completamente priva di access point wireless","Una sottorete separata che espone servizi pubblici riducendo il rischio per la rete interna","Un tipo di connessione VPN tra due sedi remote","Un protocollo per la ridondanza dei link di rete"],a:1,exp:"La DMZ è una sottorete intermedia tra Internet e la rete interna, dove si collocano server pubblici (web, mail, FTP) per minimizzare il rischio."},
-  {cat:"Networking",q:"Quale comando Windows permette di svuotare la cache DNS locale?",opts:["ipconfig /flushdns","nslookup /clearcache","netstat -flush","ping /cleardns"],a:0,exp:"Il comando 'ipconfig /flushdns' svuota la cache del resolver DNS locale di Windows, forzando nuove query DNS."},
-  {cat:"Networking",q:"Qual è la funzione del protocollo ICMP (Internet Control Message Protocol)?",opts:["Trasferire file tra host su reti diverse","Inviare messaggi di controllo, diagnostica ed errore relativi alla rete IP","Assegnare indirizzi IP ai dispositivi della rete","Cifrare le comunicazioni tra due endpoint di rete"],a:1,exp:"ICMP è usato per messaggi diagnostici e di errore come quelli generati da ping (Echo Request/Reply) e traceroute."},
-  {cat:"Networking",q:"Quale subnet mask in formato decimale corrisponde al prefisso /8?",opts:["255.255.255.0","255.255.0.0","255.0.0.0","255.128.0.0"],a:2,exp:"255.0.0.0 ha esattamente 8 bit impostati a 1, corrispondente al prefisso /8 in CIDR (tipico delle reti di classe A)."},
-  {cat:"Networking",q:"Quante sottoreti /26 si possono ottenere suddividendo una rete /24?",opts:["2 sottoreti","4 sottoreti","8 sottoreti","16 sottoreti"],a:1,exp:"Passando da /24 a /26 si aggiungono 2 bit di rete: 2^2 = 4 sottoreti /26, ciascuna con 62 host utilizzabili."},
+  {cat:"Networking",type:"single",q:"Cosa identifica un indirizzo IP all'interno di una rete?",opts:["Il produttore della scheda di rete","Un dispositivo connesso alla rete","La velocità massima di connessione","Il protocollo di trasmissione usato"],a:1,exp:"L'indirizzo IP identifica univocamente un dispositivo all'interno di una rete."},
+  {cat:"Networking",type:"single",q:"Quanti bit compongono un indirizzo IPv4?",opts:["16 bit","64 bit","32 bit","128 bit"],a:2,exp:"IPv4 utilizza indirizzi a 32 bit, rappresentati come 4 ottetti decimali separati da punti."},
+  {cat:"Networking",type:"single",q:"Quanti bit compongono un indirizzo IPv6?",opts:["32 bit","256 bit","64 bit","128 bit"],a:3,exp:"IPv6 utilizza indirizzi a 128 bit, scritti in notazione esadecimale separata da due punti."},
+  {cat:"Networking",type:"single",q:"Quale dei seguenti è un indirizzo IP privato di classe A?",opts:["192.168.1.1","8.8.8.8","172.16.0.1","10.0.0.1"],a:3,exp:"Il range 10.0.0.0/8 è il blocco di indirizzi privati di classe A definito dalla RFC 1918."},
+  {cat:"Networking",type:"single",q:"Quale dei seguenti è un indirizzo IP privato di classe C?",opts:["10.0.0.1","169.254.1.1","192.168.1.1","172.16.0.1"],a:2,exp:"Il range 192.168.0.0/16 è riservato alle reti private di classe C."},
+  {cat:"Networking",type:"single",q:"Qual è l'indirizzo di loopback standard in IPv4?",opts:["192.168.0.1","255.255.255.255","0.0.0.0","127.0.0.1"],a:3,exp:"127.0.0.1 è l'indirizzo di loopback: il traffico inviato qui non lascia mai il dispositivo."},
+  {cat:"Networking",type:"single",q:"Cosa indica il prefisso /24 nella notazione CIDR?",opts:["24 host disponibili","24 byte di payload","I primi 24 bit identificano la rete","24 reti disponibili"],a:2,exp:"In CIDR, /24 significa che i primi 24 bit identificano la rete, lasciando 8 bit per gli host."},
+  {cat:"Networking",type:"single",q:"Qual è l'indirizzo di broadcast di una rete 192.168.1.0/24?",opts:["192.168.1.0","192.168.1.254","192.168.1.1","192.168.1.255"],a:3,exp:"L'indirizzo broadcast è sempre l'ultimo indirizzo della sottorete, con tutti i bit host a 1."},
+  {cat:"Networking",type:"single",q:"Cosa fa il NAT (Network Address Translation)?",opts:["Cifra il traffico di rete","Definisce percorsi statici di routing","Traduce IP privati in IP pubblici per accedere a Internet","Assegna indirizzi MAC univoci"],a:2,exp:"Il NAT traduce gli indirizzi IP privati in IP pubblici permettendo a più dispositivi di condividere una connessione Internet."},
+  {cat:"Networking",type:"single",q:"Cosa rappresenta il campo TTL in un pacchetto IP?",opts:["Il tempo totale di latenza","La dimensione massima del pacchetto","Il tipo di protocollo incapsulato","Il numero massimo di hop prima che il pacchetto venga scartato"],a:3,exp:"TTL è un contatore decrementato da ogni router. A 0 il pacchetto viene scartato, evitando loop infiniti."},
+  {cat:"Networking",type:"single",q:"Quanti indirizzi IP totali contiene una rete /28?",opts:["32","64","8","16"],a:3,exp:"Una rete /28 lascia 4 bit per gli host: 2^4 = 16 indirizzi totali (14 host utilizzabili)."},
+  {cat:"Networking",type:"single",q:"Qual è lo scopo della subnet mask?",opts:["Assegnare automaticamente IP ai dispositivi","Cifrare i dati trasmessi","Filtrare il traffico da Internet","Separare la parte di rete dalla parte host dell'IP"],a:3,exp:"La subnet mask consente di distinguere la porzione di rete dalla porzione host di un indirizzo IP."},
+  {cat:"Networking",type:"single",q:"Quanti host utilizzabili offre una rete /24?",opts:["256","255","128","254"],a:3,exp:"256 indirizzi totali meno 1 per la rete e 1 per il broadcast = 254 host utilizzabili."},
+  {cat:"Networking",type:"single",q:"Quanti host utilizzabili offre una rete /25?",opts:["128","62","254","126"],a:3,exp:"/25 lascia 7 bit host: 128 indirizzi totali meno 2 = 126 host utilizzabili."},
+  {cat:"Networking",type:"single",q:"Quanti host utilizzabili offre una rete /30?",opts:["4","6","2","30"],a:2,exp:"/30 ha 4 indirizzi totali: 1 rete, 1 broadcast, 2 host utilizzabili. Tipico per link punto-punto."},
+  {cat:"Networking",type:"single",q:"Quale subnet mask corrisponde al prefisso /16?",opts:["255.255.255.0","255.0.0.0","255.255.255.128","255.255.0.0"],a:3,exp:"255.255.0.0 ha 16 bit a 1, corrispondente a /16 in CIDR."},
+  {cat:"Networking",type:"single",q:"Quale subnet mask corrisponde al prefisso /8?",opts:["255.255.0.0","255.128.0.0","255.255.255.0","255.0.0.0"],a:3,exp:"255.0.0.0 ha 8 bit a 1, corrispondente a /8 in CIDR (reti di classe A)."},
+  {cat:"Networking",type:"single",q:"Quante sottoreti /26 si ricavano da una rete /24?",opts:["2","8","16","4"],a:3,exp:"Da /24 a /26 si aggiungono 2 bit: 2^2 = 4 sottoreti /26."},
+  {cat:"Networking",type:"single",q:"Qual è la funzione principale del default gateway?",opts:["Fornire IP ai client tramite DHCP","Risolvere i nomi DNS","Proteggere la rete da accessi non autorizzati","Instradare il traffico verso reti diverse da quella locale"],a:3,exp:"Il default gateway è il router a cui si inviano i pacchetti destinati a reti esterne."},
+  {cat:"Networking",type:"single",q:"Su quale livello OSI operano i router?",opts:["Livello 1 — Fisico","Livello 4 — Trasporto","Livello 2 — Data Link","Livello 3 — Rete"],a:3,exp:"I router operano al livello 3 (Rete), analizzando gli indirizzi IP per l'instradamento."},
+  {cat:"Networking",type:"single",q:"Quale comando Windows mostra il default gateway configurato?",opts:["tracert 8.8.8.8","ping gateway","netstat -r","ipconfig"],a:3,exp:"Il comando 'ipconfig' mostra la configurazione completa di rete, incluso il default gateway."},
+  {cat:"Networking",type:"single",q:"Qual è la funzione principale del protocollo DNS?",opts:["Cifrare il traffico web","Assegnare IP dinamicamente","Instradare pacchetti tra reti","Tradurre nomi di dominio in indirizzi IP"],a:3,exp:"Il DNS traduce i nomi di dominio (es. google.com) nei corrispondenti indirizzi IP."},
+  {cat:"Networking",type:"single",q:"Su quale porta opera il DNS per le query standard?",opts:["TCP 80","TCP 443","TCP 25","UDP 53"],a:3,exp:"Il DNS usa la porta UDP 53 per le query standard di risoluzione nomi."},
+  {cat:"Networking",type:"single",q:"Cosa fa il server DHCP?",opts:["Traduce nomi in IP","Autentica gli utenti","Filtra il traffico in ingresso","Assegna automaticamente IP e parametri di rete ai client"],a:3,exp:"Il DHCP assegna dinamicamente IP, subnet mask, gateway e DNS agli host della rete."},
+  {cat:"Networking",type:"single",q:"Quale è il primo messaggio inviato da un client DHCP?",opts:["DHCP Acknowledge","DHCP Offer","DHCP Request","DHCP Discover"],a:3,exp:"Il client invia un DHCP Discover in broadcast per trovare server DHCP disponibili."},
+  {cat:"Networking",type:"single",q:"Cos'è un indirizzo MAC?",opts:["Il nome del dispositivo in rete","Il numero di serie del router","Un indirizzo IP privato","Un identificatore hardware univoco a 48 bit della scheda di rete"],a:3,exp:"Il MAC address è un identificatore hardware a 48 bit assegnato in fabbrica alla scheda di rete."},
+  {cat:"Networking",type:"single",q:"Cosa testa il comando ping?",opts:["La configurazione DNS","L'apertura delle porte TCP","La velocità massima della connessione","La raggiungibilità di un host e il tempo di risposta"],a:3,exp:"Ping invia pacchetti ICMP Echo Request e misura il tempo di risposta (RTT)."},
+  {cat:"Networking",type:"single",q:"Cos'è una VLAN?",opts:["Un tipo di cavo Ethernet","Un protocollo di routing dinamico","Una rete wireless virtuale","Una segmentazione logica di una rete fisica in reti virtuali separate"],a:3,exp:"Una VLAN permette di suddividere logicamente una rete fisica in più reti separate."},
+  {cat:"Networking",type:"single",q:"Quanti livelli ha il modello OSI?",opts:["4","5","10","7"],a:3,exp:"Il modello OSI ha 7 livelli: Fisico, Data Link, Rete, Trasporto, Sessione, Presentazione, Applicazione."},
+  {cat:"Networking",type:"single",q:"Qual è la differenza principale tra TCP e UDP?",opts:["UDP è obsoleto","TCP è più veloce","Non esiste differenza sostanziale","TCP garantisce consegna ordinata con controllo errori; UDP è più veloce ma senza garanzie"],a:3,exp:"TCP è affidabile con handshake e ritrasmissioni; UDP è connectionless e più veloce ma senza garanzie."},
+  {cat:"Networking",type:"single",q:"Su quale porta opera HTTP?",opts:["443","21","25","80"],a:3,exp:"HTTP opera sulla porta TCP 80."},
+  {cat:"Networking",type:"single",q:"Su quale porta opera HTTPS?",opts:["80","8080","8443","443"],a:3,exp:"HTTPS opera sulla porta TCP 443, cifrando il traffico con TLS."},
+  {cat:"Networking",type:"single",q:"Cosa fa il protocollo ARP?",opts:["Cifra il traffico tra host","Assegna IP dinamicamente","Traduce nomi DNS","Risolve un indirizzo IP in un indirizzo MAC nella stessa rete"],a:3,exp:"ARP traduce un IP noto in un indirizzo MAC per la comunicazione al livello Data Link."},
+  {cat:"Networking",type:"single",q:"Cosa mostra il comando tracert/traceroute?",opts:["Le porte aperte su un host","La risoluzione DNS","La velocità della connessione","Il percorso hop per hop verso la destinazione con i tempi di risposta"],a:3,exp:"Tracert/traceroute mostra ogni router attraversato e il relativo RTT verso la destinazione."},
+  {cat:"Networking",type:"single",q:"Cos'è una DMZ in ambito networking?",opts:["Una zona LAN senza Wi-Fi","Un tipo di VPN","Un protocollo di routing","Una sottorete separata che espone servizi pubblici proteggendo la rete interna"],a:3,exp:"La DMZ è una sottorete intermedia tra Internet e la rete interna dove si collocano server pubblici."},
+  {cat:"Networking",type:"single",q:"Quale comando svuota la cache DNS su Windows?",opts:["ping /cleardns","nslookup /clear","netstat -flush","ipconfig /flushdns"],a:3,exp:"Il comando 'ipconfig /flushdns' svuota la cache DNS locale di Windows."},
+  {cat:"Networking",type:"single",q:"Cosa fa il protocollo ICMP?",opts:["Trasferisce file","Assegna IP","Cifra le comunicazioni","Invia messaggi di controllo ed errore relativi alla rete"],a:3,exp:"ICMP è usato per messaggi diagnostici come ping (Echo Request/Reply) e traceroute."},
+  {cat:"Networking",type:"single",q:"A quale livello OSI opera uno switch layer 2?",opts:["Livello 3","Livello 4","Livello 1","Livello 2"],a:3,exp:"Uno switch L2 opera al livello Data Link e instrada i frame usando la tabella MAC."},
+  {cat:"Networking",type:"single",q:"Cosa si intende per APIPA?",opts:["IP assegnato da DHCP remoto","IP riservato ai server","IP di multicast","IP auto-assegnato nel range 169.254.x.x in assenza di DHCP"],a:3,exp:"APIPA assegna automaticamente un IP 169.254.x.x quando il client non trova un server DHCP."},
+  {cat:"Networking",type:"single",q:"Quale range è riservato al multicast IPv4?",opts:["172.16.0.0-172.31.255.255","10.0.0.0-10.255.255.255","240.0.0.0-255.255.255.255","224.0.0.0-239.255.255.255"],a:3,exp:"Il range 224.0.0.0-239.255.255.255 è riservato agli indirizzi multicast (classe D)."},
+  {cat:"Networking",type:"single",q:"Cos'è il lease time nel DHCP?",opts:["Il tempo dell'handshake TCP","L'intervallo tra due ARP request","Il tempo di risposta del DNS","La durata per cui un IP assegnato dal DHCP rimane valido"],a:3,exp:"Il lease time è il periodo di validità dell'IP assegnato dal DHCP; alla scadenza il client deve rinnovarlo."},
+  {cat:"Networking",type:"single",q:"Cosa fa il comando nslookup?",opts:["Mostra le connessioni TCP attive","Configura il DHCP client","Mostra la tabella ARP","Interroga un server DNS per risolvere nomi o IP"],a:3,exp:"nslookup permette di interrogare manualmente un server DNS per risolvere nomi in IP o viceversa."},
+  {cat:"Networking",type:"single",q:"Cos'è un record DNS di tipo A?",opts:["Un alias per un altro nome","Un record obsoleto","Associa un nome a un IPv6","Associa un nome di dominio a un indirizzo IPv4"],a:3,exp:"Il record A (Address) mappa un nome di dominio a un indirizzo IPv4."},
+  {cat:"Networking",type:"single",q:"Cos'è un record DNS di tipo AAAA?",opts:["Un alias per un altro nome","Associa un nome a un IPv4","Definisce il server di posta","Associa un nome di dominio a un indirizzo IPv6"],a:3,exp:"Il record AAAA mappa un nome di dominio a un indirizzo IPv6 (128 bit)."},
+  {cat:"Networking",type:"single",q:"Su quale porta opera FTP per il trasferimento dati?",opts:["25","80","443","21"],a:3,exp:"FTP usa la porta TCP 21 per il controllo e la porta TCP 20 per il trasferimento dati attivo."},
+  {cat:"Networking",type:"single",q:"Su quale porta opera SSH?",opts:["23","80","443","22"],a:3,exp:"SSH (Secure Shell) opera sulla porta TCP 22 e fornisce accesso remoto cifrato."},
+  {cat:"Networking",type:"single",q:"Su quale porta opera SMTP?",opts:["110","143","80","25"],a:3,exp:"SMTP (Simple Mail Transfer Protocol) usa la porta TCP 25 per l'invio di email."},
+  {cat:"Networking",type:"single",q:"Cosa indica una metrica di routing più bassa?",opts:["Un gateway non raggiungibile","Una connessione più lenta","Un percorso meno preferito","Un percorso preferito rispetto ad altri con metrica più alta"],a:3,exp:"Una metrica più bassa indica un percorso preferito nelle tabelle di routing."},
+  {cat:"Networking",type:"single",q:"Cos'è il routing statico?",opts:["Route apprese automaticamente tramite protocolli","Route assegnate dal DHCP","Route apprese tramite ARP","Route configurate manualmente dall'amministratore"],a:3,exp:"Il routing statico prevede route configurate manualmente, senza protocolli di routing dinamico."},
+  {cat:"Networking",type:"single",q:"Cos'è la DNS cache?",opts:["Il file di configurazione del DNS","Un database di tutti i nomi mondiali","Una lista di IP bloccati","Una memoria temporanea delle risoluzioni DNS già effettuate"],a:3,exp:"La DNS cache memorizza temporaneamente le risoluzioni per ridurre le query ripetute."},
+  {cat:"Networking",type:"single",q:"Cosa si ottiene con l'AND bit a bit tra IP e subnet mask?",opts:["L'indirizzo del gateway","Il numero totale di host","L'indirizzo broadcast","L'indirizzo di rete (network address)"],a:3,exp:"L'AND bit a bit tra IP e subnet mask restituisce l'indirizzo di rete."},
+  {cat:"Networking",type:"multi",q:"Quali dei seguenti sono indirizzi IP privati secondo RFC 1918?",opts:["10.0.0.1","8.8.8.8","192.168.100.5","172.20.0.1","1.1.1.1"],a:[0,2,3],exp:"Gli indirizzi privati RFC 1918 sono: 10.0.0.0/8, 192.168.0.0/16 e 172.16.0.0/12."},
+  {cat:"Networking",type:"multi",q:"Quali protocolli operano sulla porta 443?",opts:["HTTP","HTTPS","TLS/SSL su HTTP","FTP","SSH"],a:[1,2],exp:"HTTPS usa la porta 443 cifrando il traffico HTTP tramite TLS/SSL."},
+  {cat:"Networking",type:"multi",q:"Quali affermazioni sul protocollo TCP sono corrette?",opts:["È connectionless","Usa un three-way handshake","Garantisce la consegna ordinata dei dati","Non ha controllo degli errori","Ritrasmette i pacchetti persi"],a:[1,2,4],exp:"TCP usa SYN/SYN-ACK/ACK per stabilire la connessione, garantisce l'ordine dei dati e ritrasmette i pacchetti persi."},
+  {cat:"Networking",type:"multi",q:"Quali livelli fanno parte del modello OSI?",opts:["Fisico","Sessione","Accesso","Presentazione","Collegamento"],a:[0,1,3],exp:"I 7 livelli OSI sono: Fisico, Data Link, Rete, Trasporto, Sessione, Presentazione, Applicazione."},
+  {cat:"Networking",type:"multi",q:"Quali comandi Windows sono utili per la diagnostica di rete?",opts:["ipconfig","format","ping","tracert","defrag"],a:[0,2,3],exp:"ipconfig mostra la configurazione, ping testa la raggiungibilità, tracert mostra il percorso dei pacchetti."},
+  {cat:"Networking",type:"multi",q:"Quali caratteristiche ha una VLAN?",opts:["Segmenta logicamente la rete","Richiede router separati fisicamente","Migliora la sicurezza","Riduce il broadcast domain","Richiede switch dedicati per ogni VLAN"],a:[0,2,3],exp:"Una VLAN segmenta logicamente la rete, migliora la sicurezza e riduce i broadcast domain."},
+  {cat:"Networking",type:"multi",q:"Quali messaggi fanno parte del processo DHCP DORA?",opts:["DHCP Discover","DHCP Sync","DHCP Offer","DHCP Request","DHCP Acknowledge"],a:[0,2,3,4],exp:"Il processo DHCP DORA è: Discover → Offer → Request → Acknowledge."},
+  {cat:"Networking",type:"multi",q:"Quali sono porte standard di protocolli comuni?",opts:["HTTP: 80","DNS: 53","SSH: 22","FTP: 443","SMTP: 25"],a:[0,1,2,4],exp:"HTTP usa 80, DNS usa 53, SSH usa 22, SMTP usa 25. FTP usa 21, non 443."},
+  {cat:"Networking",type:"multi",q:"Quali affermazioni su IPv6 sono corrette?",opts:["Usa 128 bit","Usa 32 bit","Ha un spazio di indirizzi molto più grande di IPv4","Usa notazione esadecimale","È incompatibile con IPv4 nativamente"],a:[0,2,3,4],exp:"IPv6 usa 128 bit in notazione esadecimale, ha uno spazio enormemente più grande di IPv4 e non è nativamente compatibile con esso."},
+  {cat:"Networking",type:"multi",q:"Quali record DNS esistono?",opts:["Record A (IPv4)","Record AAAA (IPv6)","Record IP (routing)","Record MX (mail)","Record CNAME (alias)"],a:[0,1,3,4],exp:"I principali record DNS sono: A (IPv4), AAAA (IPv6), MX (mail server), CNAME (alias), TXT e altri."},
+  {cat:"Networking",type:"multi",q:"Quali affermazioni sulla subnet mask /30 sono corrette?",opts:["Contiene 4 indirizzi totali","Ha 30 host utilizzabili","È ideale per link punto-punto","Ha 2 host utilizzabili","Corrisponde a 255.255.255.252"],a:[0,2,3,4],exp:"Una /30 ha 4 indirizzi totali (2^2), 2 host utilizzabili, ed è la scelta standard per link punto-punto tra router."},
 ];
 
 const ENGLISH_Q=[
-  {cat:"Inglese Tecnico",q:"What does 'IP address' stand for and what is its purpose?",opts:["Internet Protocol address — it identifies a device on a network","Internal Protocol address — it encrypts network communications","Input Protocol address — it controls data flow","Interface Protocol address — it defines connection speed"],a:0,exp:"IP stands for Internet Protocol. An IP address uniquely identifies a device on a network."},
-  {cat:"Inglese Tecnico",q:"What is a 'subnet mask' used for in network configuration?",opts:["To encrypt all traffic between two hosts","To separate the network portion from the host portion of an IP address","To automatically assign IP addresses to devices","To filter unwanted web content"],a:1,exp:"A subnet mask distinguishes the network part from the host part of an IP address using a bitwise AND operation."},
-  {cat:"Inglese Tecnico",q:"What does the acronym 'DHCP' stand for?",opts:["Dynamic Host Configuration Protocol","Direct Host Connection Protocol","Dynamic Host Control Program","Distributed Host Communication Protocol"],a:0,exp:"DHCP stands for Dynamic Host Configuration Protocol. It automatically assigns IP addresses and network parameters to clients."},
-  {cat:"Inglese Tecnico",q:"What does the term 'troubleshoot' mean in an IT context?",opts:["To install new software on a workstation","To systematically identify, diagnose and resolve technical problems","To upgrade hardware components to newer versions","To create a backup of important data"],a:1,exp:"Troubleshooting is the systematic process of identifying the root cause of a problem and applying the appropriate fix."},
-  {cat:"Inglese Tecnico",q:"What does 'VPN' stand for and what is it used for?",opts:["Virtual Private Network — creates a secure encrypted connection over the internet","Very Protected Node — a type of secure server","Virtual Protocol Network — a network routing standard","Verified Private Node — an authentication system"],a:0,exp:"VPN stands for Virtual Private Network. It creates an encrypted tunnel over the internet, enabling secure remote access."},
-  {cat:"Inglese Tecnico",q:"What is 'latency' in the context of network performance?",opts:["The maximum theoretical speed of a network connection","The time delay between sending a packet and receiving a response","The number of packets lost during transmission","The encryption level applied to a connection"],a:1,exp:"Latency is the round-trip delay in data communication, typically measured in milliseconds. High latency causes sluggish response times."},
-  {cat:"Inglese Tecnico",q:"What does 'escalate' mean in the context of IT support?",opts:["To immediately close a support ticket","To transfer an unresolved issue to a higher level of technical support","To assign a ticket to a colleague at the same support level","To mark a ticket as low priority and schedule it for later"],a:1,exp:"Escalating means passing an issue to a higher tier of support because the current level lacks the expertise or tools to resolve it."},
-  {cat:"Inglese Tecnico",q:"What does 'uptime' refer to in IT infrastructure?",opts:["The average time needed to restart a server after a failure","The continuous period during which a system is fully operational and available","The speed of the internet connection in normal working hours","The time required to configure a new network device"],a:1,exp:"Uptime is the duration a system has been continuously running and available. High uptime percentages (e.g. 99.9%) indicate reliable infrastructure."},
-  {cat:"Inglese Tecnico",q:"What does it mean to 'deploy' a system or application?",opts:["To test software in an isolated development environment","To release and make a system or application available for production use","To permanently remove outdated software from a server","To create an encrypted backup of a server"],a:1,exp:"Deploying means releasing software or infrastructure into a production environment so it is available for end users."},
-  {cat:"Inglese Tecnico",q:"What is a 'backup' and why is it important?",opts:["A process that removes old files to free disk space","A copy of data stored separately to enable recovery in case of loss or corruption","A method to increase the bandwidth of a network connection","An automatic procedure to restart a service after a failure"],a:1,exp:"A backup is a copy of data stored in a separate location. It is essential for disaster recovery and business continuity."},
-  {cat:"Inglese Tecnico",q:"What is the role of a 'firewall' in a network infrastructure?",opts:["A device that amplifies Wi-Fi signal in large buildings","A security system that monitors and controls incoming and outgoing network traffic","A physical barrier that separates network cable runs","A protocol that handles file transfers between remote servers"],a:1,exp:"A firewall enforces security policies by inspecting and filtering network traffic, blocking unauthorized access and threats."},
-  {cat:"Inglese Tecnico",q:"What does it mean to 'configure' a device or application?",opts:["To physically install new hardware components","To set up and adjust settings so a device or application works as required","To repair a device that has stopped functioning","To monitor network traffic in real time"],a:1,exp:"Configuring means adjusting the parameters and settings of hardware or software to meet operational requirements."},
-  {cat:"Inglese Tecnico",q:"What is 'bandwidth' in networking?",opts:["The physical length of a network cable between two devices","The maximum data transfer rate of a network connection","The total number of devices connected to a network","The encryption strength applied to a secure connection"],a:1,exp:"Bandwidth is the maximum data transfer capacity of a network link, typically measured in Mbps or Gbps."},
-  {cat:"Inglese Tecnico",q:"What is a 'patch' in IT and why is it applied?",opts:["A physical repair splice used on damaged network cables","A software update that fixes bugs, security vulnerabilities or improves performance","A type of detailed network topology diagram","A configuration file used to restore a previous system state"],a:1,exp:"A patch is a targeted software update that addresses specific bugs or security vulnerabilities without replacing the entire application."},
-  {cat:"Inglese Tecnico",q:"What is an IT 'log' and what is it used for?",opts:["A printed inventory of all hardware components in a data center","A file that automatically records events, errors and activities in a system","A physical cable management document for network racks","A complete backup of the operating system and its configuration"],a:1,exp:"A log file records timestamped events, errors and activities generated by systems and applications, and is essential for troubleshooting and auditing."},
-  {cat:"Inglese Tecnico",q:"What does it mean to 'prioritize' tasks effectively in a work environment?",opts:["To handle all tasks simultaneously regardless of urgency or importance","To identify the most important and urgent tasks and address them first","To delegate all tasks to colleagues to avoid delays","To permanently ignore tasks that are rated as low priority"],a:1,exp:"Prioritizing means assessing tasks by urgency and importance, then allocating time and effort to address the most critical ones first."},
-  {cat:"Inglese Tecnico",q:"What does 'remote access' mean and when is it used?",opts:["Physically accessing a device in a server room during off-hours","The ability to connect to and control a computer or network from a different location","A specific type of VPN protocol used for site-to-site connections","A method for encrypting emails between remote offices"],a:1,exp:"Remote access allows technicians and users to connect to systems from different physical locations, enabling support and work flexibility."},
-  {cat:"Inglese Tecnico",q:"What does 'redundancy' mean in network design?",opts:["Having duplicate components or paths to maintain availability if one fails","Removing unused or inactive network devices to simplify management","Compressing transmitted data to reduce bandwidth consumption","Encrypting all network traffic regardless of sensitivity"],a:0,exp:"Redundancy means building in backup components or paths so the network continues operating even if a failure occurs."},
-  {cat:"Inglese Tecnico",q:"A colleague tells you: 'The server is down and I cannot reach it remotely.' What is your first step?",opts:["Immediately reboot your own workstation","Check whether the issue affects other users and verify basic network connectivity","Call the internet service provider immediately","Reinstall the server operating system remotely"],a:1,exp:"Before acting, always check the scope of the issue: is it isolated or widespread? Verify connectivity first to narrow down the root cause."},
-  {cat:"Inglese Tecnico",q:"What does 'proactive' mean in a professional IT context?",opts:["Waiting for problems to arise before taking any action","Anticipating potential issues and taking initiative without being asked","Doing only what is explicitly requested in a job description","Avoiding responsibilities that fall outside your defined role"],a:1,exp:"Being proactive means identifying potential problems before they occur and taking initiative to prevent or mitigate them."},
-  {cat:"Inglese Tecnico",q:"What does it mean to 'document' work in IT?",opts:["To permanently delete old configuration files from the system","To write down technical details, procedures and changes for future reference","To encrypt all sensitive data before transmitting it","To create a complete backup of a production server"],a:1,exp:"Documentation means recording technical information, configurations and changes in a clear and accessible way so others can understand and reproduce them."},
-  {cat:"Inglese Tecnico",q:"A client reports: 'My internet connection is very slow only in the afternoon.' What is the most likely cause?",opts:["The router hardware has developed a fault","Network congestion during peak usage hours","The client's computer is infected with malware","The ethernet cable has been physically damaged"],a:1,exp:"Slowness that occurs only at specific times typically indicates bandwidth saturation or network congestion during peak hours."},
-  {cat:"Inglese Tecnico",q:"What does 'SLA' stand for and what does it define?",opts:["System Level Authorization — defines who can access a system","Service Level Agreement — defines the expected service quality between provider and client","Software License Activation — a method for software validation","Standard Login Access — the default credentials for a system"],a:1,exp:"SLA stands for Service Level Agreement, a formal contract that defines expected service levels such as uptime, response time and support availability."},
-  {cat:"Inglese Tecnico",q:"What does it mean to 'roll back' a change in IT?",opts:["To apply the next scheduled software update","To revert a system to its previous stable state after a failed change","To permanently delete a configuration file","To restart all affected services after a maintenance window"],a:1,exp:"Rolling back means restoring the system to the state it was in before a change was applied, typically done when a change causes problems."},
-  {cat:"Inglese Tecnico",q:"What is 'throughput' and how does it differ from bandwidth?",opts:["Throughput is identical to bandwidth and the two terms are interchangeable","Throughput is the actual data transfer rate achieved, which may be lower than the theoretical bandwidth","Throughput refers to the encryption speed of a VPN connection","Throughput is the number of simultaneous connections a server can handle"],a:1,exp:"While bandwidth is the theoretical maximum capacity, throughput is the actual data transfer rate achieved in real conditions."},
-  {cat:"Inglese Tecnico",q:"What does 'downtime' mean and why is it critical to minimize it?",opts:["The time a server takes to reboot after applying an update","The period when a system is unavailable due to failure or maintenance","The scheduled window for applying software patches","The time required to deploy a new application version"],a:1,exp:"Downtime is the period during which a system is unavailable. Minimizing it is critical to business continuity and user productivity."},
-  {cat:"Inglese Tecnico",q:"What is a 'workaround' in IT support?",opts:["A permanent and definitive fix applied to resolve a technical problem","A temporary solution that enables work to continue while the permanent fix is being developed","A method used to bypass security controls for testing purposes","An automated script that handles repetitive maintenance tasks"],a:1,exp:"A workaround is a temporary measure that allows operations to continue while the root cause is being investigated and permanently resolved."},
-  {cat:"Inglese Tecnico",q:"What does 'end user' mean in IT?",opts:["The IT technician responsible for maintaining the system","The person who uses a system or application in their daily work","The software developer who designed and built the application","The manager who approved the budget for the technology purchase"],a:1,exp:"An end user is the person who actually uses a system or application, as opposed to the IT professionals who build or manage it."},
-  {cat:"Inglese Tecnico",q:"What does 'network segmentation' achieve?",opts:["It physically cuts a network into isolated segments using cable splitters","It divides a network into smaller logical parts to improve security and performance","It combines multiple networks into a single larger unified network","It encrypts all traffic traveling between network segments"],a:1,exp:"Network segmentation divides a network into smaller, controlled zones to limit the blast radius of security incidents and improve performance."},
-  {cat:"Inglese Tecnico",q:"In a professional context, what does 'accountability' mean?",opts:["Avoiding responsibility when something goes wrong","Taking ownership of your actions and their outcomes, including mistakes","Delegating all responsibility to your team manager","Only being responsible for tasks explicitly listed in your job description"],a:1,exp:"Accountability means taking ownership of your work and its results, being transparent about mistakes and committed to resolving them."},
-  {cat:"Inglese Tecnico",q:"What does it mean to 'escalate' a problem to management?",opts:["To resolve the problem independently without informing anyone","To inform your manager or a higher authority when a problem exceeds your ability to resolve it","To transfer the problem to a colleague at the same level","To document the problem and close the ticket without resolving it"],a:1,exp:"Escalating to management means proactively communicating when a problem requires resources, expertise or authority beyond your own."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'IP address' stand for?",opts:["Input Protocol address","Interface Protocol address","Internal Protocol address","Internet Protocol address"],a:3,exp:"IP stands for Internet Protocol. An IP address uniquely identifies a device on a network."},
+  {cat:"Inglese Tecnico",type:"single",q:"What is a 'subnet mask' used for?",opts:["To encrypt traffic","To assign IP addresses automatically","To filter web content","To separate the network portion from the host portion of an IP address"],a:3,exp:"A subnet mask distinguishes the network part from the host part of an IP address."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'DHCP' stand for?",opts:["Distributed Host Communication Protocol","Direct Host Connection Protocol","Dynamic Host Control Program","Dynamic Host Configuration Protocol"],a:3,exp:"DHCP stands for Dynamic Host Configuration Protocol. It automatically assigns IP addresses and parameters."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'troubleshoot' mean in IT?",opts:["To install new software","To back up data","To upgrade hardware","To systematically identify, diagnose and fix technical problems"],a:3,exp:"Troubleshooting is the systematic process of identifying root causes and resolving technical issues."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'VPN' stand for?",opts:["Verified Private Node","Virtual Protocol Network","Very Protected Node","Virtual Private Network"],a:3,exp:"VPN stands for Virtual Private Network. It creates an encrypted tunnel over the internet."},
+  {cat:"Inglese Tecnico",type:"single",q:"What is 'latency' in networking?",opts:["The maximum connection speed","The number of lost packets","The encryption level","The delay between sending a packet and receiving a response"],a:3,exp:"Latency is the round-trip delay in data communication, measured in milliseconds."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'escalate' mean in IT support?",opts:["To close a ticket","To mark a ticket as low priority","To assign to a colleague at same level","To transfer an unresolved issue to a higher level of support"],a:3,exp:"Escalating means passing an issue to a higher tier when the current level cannot resolve it."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'uptime' refer to?",opts:["Time to restart a server","Speed of internet connection","Time to configure a device","The continuous period a system is operational and available"],a:3,exp:"Uptime is the duration a system has been running continuously and available to users."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'deploy' mean in IT?",opts:["To test software in development","To remove outdated software","To back up a server","To release and make a system available for production use"],a:3,exp:"Deploying means releasing software into production so it is available for end users."},
+  {cat:"Inglese Tecnico",type:"single",q:"What is a 'backup'?",opts:["Removing old files","Increasing bandwidth","Restarting a service","A copy of data stored separately to enable recovery in case of loss"],a:3,exp:"A backup is a copy of data that can be restored if the original is lost or corrupted."},
+  {cat:"Inglese Tecnico",type:"single",q:"What is a 'firewall'?",opts:["A Wi-Fi booster","A cable type","A file transfer protocol","A security system that monitors and controls network traffic based on rules"],a:3,exp:"A firewall enforces security policies by filtering network traffic and blocking unauthorized access."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'configure' mean in IT?",opts:["To physically install hardware","To repair a broken device","To monitor traffic","To set up and adjust settings of a device or application"],a:3,exp:"Configuring means adjusting parameters and settings to make hardware or software work as required."},
+  {cat:"Inglese Tecnico",type:"single",q:"What is 'bandwidth'?",opts:["The physical cable length","The number of devices connected","The encryption strength","The maximum data transfer rate of a network connection"],a:3,exp:"Bandwidth is the maximum data transfer capacity of a network link, measured in Mbps or Gbps."},
+  {cat:"Inglese Tecnico",type:"single",q:"What is a 'patch' in IT?",opts:["A cable repair","A network diagram","A backup file","A software update that fixes bugs or security vulnerabilities"],a:3,exp:"A patch is a targeted software update that addresses specific bugs or security vulnerabilities."},
+  {cat:"Inglese Tecnico",type:"single",q:"What is an IT 'log'?",opts:["A hardware inventory","A cable management document","An OS backup","A file that records events, errors and activities in a system"],a:3,exp:"A log file records timestamped events and errors generated by systems and applications."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'proactive' mean in work?",opts:["Waiting for problems to arise","Doing only what is requested","Avoiding responsibilities","Anticipating issues and taking initiative before being asked"],a:3,exp:"Being proactive means anticipating needs and acting before being told, rather than reacting."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'remote access' mean?",opts:["Accessing a server room physically","A type of VPN protocol","A method for encrypting emails","The ability to connect to a computer or network from a different location"],a:3,exp:"Remote access lets technicians and users connect to systems from different physical locations."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'redundancy' mean in networking?",opts:["Removing unused devices","Compressing data","Encrypting all traffic","Having duplicate components to maintain availability if one fails"],a:3,exp:"Redundancy means backup components or paths so the network keeps working if a failure occurs."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'SLA' stand for?",opts:["System Level Authorization","Software License Activation","Standard Login Access","Service Level Agreement"],a:3,exp:"SLA stands for Service Level Agreement, defining expected service levels between provider and client."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'roll back' mean in IT?",opts:["To apply an update","To delete a config file","To restart a server","To revert a system to its previous state after a failed change"],a:3,exp:"Rolling back means restoring the system to its state before a change that caused problems."},
+  {cat:"Inglese Tecnico",type:"single",q:"What is 'throughput'?",opts:["The maximum theoretical speed","The number of connections","The encryption standard","The actual data transfer rate achieved, which may be lower than bandwidth"],a:3,exp:"Throughput is the real data transfer rate, which may be less than the theoretical bandwidth."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'downtime' mean?",opts:["Time to reboot a server","A maintenance window","Time to deploy an update","The period when a system is unavailable due to failure or maintenance"],a:3,exp:"Downtime is the period during which a system is not available to users."},
+  {cat:"Inglese Tecnico",type:"single",q:"What is a 'workaround'?",opts:["A permanent fix","A method to bypass security","An automation script","A temporary solution to continue working while a permanent fix is developed"],a:3,exp:"A workaround is a temporary measure allowing operations to continue while the root cause is resolved."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'end user' mean?",opts:["The IT technician","The software developer","The manager who purchased the system","The person who uses a system or application in their daily work"],a:3,exp:"An end user is the person who actually uses a system, as opposed to IT professionals who manage it."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'network segmentation' achieve?",opts:["It cuts a network with cable splitters","It combines multiple networks","It encrypts all traffic","It divides a network into smaller logical parts to improve security and performance"],a:3,exp:"Network segmentation limits the impact of security incidents and improves performance."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'accountability' mean professionally?",opts:["Avoiding responsibility","Delegating everything","Only being responsible for listed tasks","Taking ownership of your actions and their outcomes, including mistakes"],a:3,exp:"Accountability means owning your work and its results, being transparent about mistakes."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'default gateway' mean?",opts:["A server that assigns IP addresses","A device that encrypts data","A DNS server","The router that forwards traffic to networks outside the local network"],a:3,exp:"The default gateway routes packets to external networks when no specific route exists."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'ping' do?",opts:["Transfers files","Displays open ports","Configures interfaces","Tests the reachability of a host and measures response time"],a:3,exp:"Ping sends ICMP Echo Request packets and measures the round-trip time to a host."},
+  {cat:"Inglese Tecnico",type:"single",q:"What is a 'switch' in networking?",opts:["A Layer 3 router","An IP address assigner","A Wi-Fi amplifier","A device that connects LAN devices and forwards frames using MAC addresses"],a:3,exp:"A network switch operates at Layer 2 and forwards frames based on MAC address tables."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'SSID' stand for?",opts:["Secure Signal ID Device","System Signal ID","Standard Security Interface Device","Service Set Identifier — the name of a Wi-Fi network"],a:3,exp:"SSID stands for Service Set Identifier, which is the name broadcast by a Wi-Fi network."},
+  {cat:"Inglese Tecnico",type:"single",q:"What is 'packet loss'?",opts:["A damaged cable","A router memory issue","A disconnected device","When data packets fail to reach their destination"],a:3,exp:"Packet loss occurs when transmitted packets fail to arrive at their destination."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'document' mean in IT work?",opts:["To delete old files","To encrypt sensitive data","To back up a server","To write down technical details and procedures for future reference"],a:3,exp:"Documentation means recording technical information and changes so others can understand and reproduce them."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'prioritize' mean at work?",opts:["To do all tasks simultaneously","To delegate everything","To ignore less important tasks","To decide which tasks are most important and address them first"],a:3,exp:"Prioritizing means identifying critical tasks and addressing them first to maximize efficiency."},
+  {cat:"Inglese Tecnico",type:"single",q:"What is a 'network topology'?",opts:["The physical location of devices","The speed of transmission","The security protocol used","The arrangement and interconnection of devices in a network"],a:3,exp:"Network topology describes how devices are arranged and connected in a network (star, ring, mesh, etc.)."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'MAC address' stand for?",opts:["Machine Access Code","Main Address Code","Managed Access Controller","Media Access Control address — a unique hardware identifier for a network interface"],a:3,exp:"MAC stands for Media Access Control. It is the unique hardware address assigned to a network interface."},
+  {cat:"Inglese Tecnico",type:"single",q:"What does 'escalate a ticket' mean?",opts:["To close a ticket","To assign it at same level","To mark it low priority","To transfer it to a higher level of technical support for resolution"],a:3,exp:"Escalating a ticket means passing it to a higher tier because the current team cannot resolve it."},
+  {cat:"Inglese Tecnico",type:"multi",q:"Which of the following are valid reasons to escalate a support ticket?",opts:["The problem exceeds your technical expertise","You want to avoid working on it","The issue requires access you don't have","The problem has been unresolved beyond the SLA time","You don't know the customer"],a:[0,2,3],exp:"Escalation is appropriate when the issue exceeds your expertise, requires higher access, or violates SLA timelines."},
+  {cat:"Inglese Tecnico",type:"multi",q:"Which of the following are good documentation practices in IT?",opts:["Recording every configuration change","Keeping notes private so no one copies your work","Writing step-by-step procedures","Documenting troubleshooting steps even when unsuccessful","Updating documentation when systems change"],a:[0,2,3,4],exp:"Good documentation includes recording changes, procedures, troubleshooting steps, and keeping docs updated."},
+  {cat:"Inglese Tecnico",type:"multi",q:"Which statements about a VPN are correct?",opts:["It encrypts traffic over the internet","It increases connection speed","It allows secure remote access","It hides the user's IP address from external sites","It requires dedicated hardware always"],a:[0,2,3],exp:"A VPN encrypts internet traffic, enables secure remote access, and masks the user's IP address."},
+  {cat:"Inglese Tecnico",type:"multi",q:"Which of the following describe 'proactive' behavior at work?",opts:["Waiting for a problem to escalate before acting","Reporting a potential issue before it becomes critical","Preparing for a meeting by reviewing relevant materials","Asking for more tasks when current ones are complete","Doing only what is explicitly requested"],a:[1,2,3],exp:"Proactive behavior includes anticipating problems, preparing in advance, and seeking additional responsibilities."},
+  {cat:"Inglese Tecnico",type:"multi",q:"Which are characteristics of a Service Level Agreement (SLA)?",opts:["Defines response and resolution times","Is optional for enterprise clients","Sets performance benchmarks","Defines penalties for not meeting targets","Applies only to hardware contracts"],a:[0,2,3],exp:"An SLA defines response/resolution times, performance benchmarks, and penalties for not meeting agreed targets."},
+  {cat:"Inglese Tecnico",type:"multi",q:"Which statements about 'downtime' are correct?",opts:["It refers to a period of system unavailability","It always implies a security breach","It can be planned (maintenance) or unplanned (failure)","Minimizing it is critical for business continuity","It only applies to servers"],a:[0,2,3],exp:"Downtime is any period of unavailability, planned or unplanned, and minimizing it is key to business continuity."},
+  {cat:"Inglese Tecnico",type:"multi",q:"Which of the following are examples of network redundancy?",opts:["Having two internet connections from different ISPs","Using a single switch for all devices","Dual power supplies in a server","A secondary firewall in standby mode","Storing all backups in one location"],a:[0,2,3],exp:"Redundancy includes dual ISP links, dual power supplies, and standby failover devices."},
+  {cat:"Inglese Tecnico",type:"multi",q:"Which of the following are part of a proper backup strategy?",opts:["Regular automated backups","Storing backups only on the same machine","Testing backup restoration periodically","Offsite or cloud backup copies","Documenting the backup procedure"],a:[0,2,3,4],exp:"A solid backup strategy includes automation, periodic restore testing, offsite copies, and documented procedures."},
+  {cat:"Inglese Tecnico",type:"multi",q:"Which statements about 'bandwidth' vs 'throughput' are correct?",opts:["Bandwidth is the theoretical maximum capacity","Throughput is the actual transfer rate achieved","They are always equal in practice","Throughput can be affected by latency and packet loss","Bandwidth is measured in milliseconds"],a:[0,1,3],exp:"Bandwidth is theoretical max; throughput is what's actually achieved and is affected by latency and packet loss."},
+  {cat:"Inglese Tecnico",type:"multi",q:"Which of the following are true about a 'rollback'?",opts:["It reverts a system to a previous state","It should be planned before making changes","It is only used for database operations","It requires a prior backup or snapshot","It is a last resort after a failed change"],a:[0,1,3,4],exp:"A rollback reverts to a previous state, requires prior preparation (backup/snapshot), and is used after failed changes."},
 ];
 
 const LOGIC_Q=[
-  {cat:"Problem Solving",q:"Un utente ti chiama e dice: non riesco ad aprire nessun sito web, ma la rete funziona. Qual è la prima cosa che controlli?",opts:["Riavvii subito il router senza fare altre verifiche","Controlli la configurazione DNS del client e testi la risoluzione con nslookup","Reinstalli il browser dell'utente","Chiami direttamente il provider internet"],a:1,exp:"Se la rete funziona (ping 8.8.8.8 risponde) ma i siti non si aprono, il problema è quasi certamente nella risoluzione DNS. Verificare prima la configurazione DNS è il passo corretto."},
-  {cat:"Problem Solving",q:"Devi configurare 10 PC in una nuova rete aziendale. Quale approccio garantisce efficienza e coerenza?",opts:["Configurare ogni PC manualmente uno per uno con IP statici","Implementare un server DHCP per automatizzare l'assegnazione di IP e parametri di rete","Assegnare lo stesso indirizzo IP a tutti i PC","Collegare tutti i PC con un hub invece di uno switch"],a:1,exp:"Il DHCP centralizza e automatizza la configurazione di rete, riducendo il rischio di errori e il tempo necessario rispetto alla configurazione manuale."},
-  {cat:"Problem Solving",q:"Stai lavorando su un problema tecnico complesso che non riesci a risolvere dopo 2 ore di tentativi. Cosa fai?",opts:["Continui a provare da solo senza informare nessuno, per non sembrare incompetente","Chiedi aiuto a un collega più esperto, documenti il problema e l'approccio seguito","Dici al cliente che il problema non è risolvibile","Aspetti che il problema si risolva spontaneamente"],a:1,exp:"Saper riconoscere i propri limiti e chiedere supporto è una qualità professionale. Documentare il problema accelera la risoluzione e condivide la conoscenza."},
-  {cat:"Problem Solving",q:"Due workstation nella stessa rete hanno lo stesso indirizzo IP configurato. Quale problema tecnico si verifica?",opts:["La rete diventa più veloce grazie al bilanciamento del carico","Si genera un conflitto IP con disconnessioni intermittenti per entrambi i dispositivi","Uno dei due dispositivi ottiene automaticamente più banda","Non si verifica nessun problema visibile agli utenti"],a:1,exp:"Un conflitto IP genera comportamenti imprevedibili: disconnessioni intermittenti, errori di comunicazione e impossibilità di raggiungere i dispositivi coinvolti."},
-  {cat:"Problem Solving",q:"Un cliente segnala che la connessione internet è lenta esclusivamente nelle ore pomeridiane. Qual è la causa più probabile?",opts:["Il router dell'ufficio ha un guasto hardware intermittente","Congestione della rete o saturazione della banda del provider nelle ore di punta","Il PC del cliente è infettato da un malware che si attiva di pomeriggio","Il cavo Ethernet è danneggiato e degrada le prestazioni progressivamente"],a:1,exp:"La degradazione delle prestazioni limitata a fasce orarie specifiche è tipicamente causata dalla congestione della rete durante le ore di picco."},
-  {cat:"Problem Solving",q:"Stai completando un'attività urgente quando arriva un'altra richiesta altrettanto urgente da un cliente diverso. Come gestisci la situazione?",opts:["Abbandoni immediatamente la prima attività per dedicarti alla seconda","Comunichi la situazione al tuo responsabile e chiedi come prioritizzare le due richieste","Ignori la seconda richiesta fino al completamento della prima","Cerchi di gestire entrambe le attività contemporaneamente, rischiando errori su entrambe"],a:1,exp:"Comunicare al responsabile permette di prendere la decisione corretta sulla priorità, evitando di compromettere entrambe le attività."},
-  {cat:"Problem Solving",q:"Hai effettuato una modifica di configurazione su un server che ha causato un'interruzione del servizio. Come agisci?",opts:["Cerchi di risolvere il problema in silenzio senza informare nessuno","Comunichi immediatamente l'accaduto al responsabile, ripristini la configurazione precedente e documenti l'evento","Attribuisci il problema a una causa esterna per non assumere responsabilità","Aspetti che qualcun altro si accorga del problema prima di agire"],a:1,exp:"Trasparenza, reazione immediata e documentazione dell'incidente sono le risposte corrette: minimizzano il danno e prevengono la ripetizione dell'errore."},
-  {cat:"Problem Solving",q:"Un PC riesce a navigare su Internet ma non riesce a raggiungere un server interno alla rete aziendale. Qual è la causa più probabile?",opts:["Il PC non ha una connessione internet funzionante","Problema di routing interno, firewall o server interno non raggiungibile","Il browser del PC ha un aggiornamento pendente","Il server DNS pubblico non funziona correttamente"],a:1,exp:"Se Internet funziona, il problema è specifico per la rete interna: routing, firewall, IP errato del server o il server stesso non è operativo."},
-  {cat:"Problem Solving",q:"Un cliente è visibilmente frustrato per un problema tecnico rimasto irrisolto per diversi giorni. Come gestisci l'interazione?",opts:["Eviti il contatto con il cliente finché non hai la soluzione completa","Ascolti attivamente, riconosci il disagio causato, aggiorni sullo stato e fornisci tempi realistici","Spieghi al cliente che il problema non dipende da voi","Suggerisci al cliente di rivolgersi a un altro fornitore"],a:1,exp:"La gestione della relazione con il cliente richiede empatia, comunicazione proattiva e aggiornamenti regolari, indipendentemente dallo stato della risoluzione tecnica."},
-  {cat:"Problem Solving",q:"La stampante di rete ha smesso di funzionare per tutti gli utenti dell'ufficio. Qual è il primo passo diagnostico?",opts:["Reinstallare i driver di stampa su tutti i PC dell'ufficio","Verificare lo stato fisico della stampante, la connettività di rete e il suo indirizzo IP","Ordinare immediatamente una stampante sostitutiva","Riavviare tutti i PC dell'ufficio prima di qualsiasi altra verifica"],a:1,exp:"Prima di qualsiasi intervento su client o infrastruttura, è necessario verificare lo stato operativo del dispositivo centrale che causa il problema."},
-  {cat:"Problem Solving",q:"Quale pratica professionale distingue un tecnico IT di qualità da uno mediocre?",opts:["Risolvere i problemi velocemente senza fermarsi a documentare l'intervento","Documentare ogni intervento, configurazione e modifica effettuata in modo dettagliato","Tenere per sé le soluzioni trovate per rendersi indispensabile all'azienda","Non comunicare i problemi aperti finché non sono stati completamente risolti"],a:1,exp:"La documentazione sistematica accelera la risoluzione di problemi futuri, facilita la collaborazione nel team e garantisce la continuità operativa."},
-  {cat:"Problem Solving",q:"Un utente descrive il problema in modo vago: 'Il computer non funziona.' Come procedi correttamente?",opts:["Riavvii il PC immediatamente senza raccogliere ulteriori informazioni","Poni domande specifiche per comprendere esattamente cosa non funziona, da quando e in che contesto","Sostituisci direttamente il PC senza ulteriori indagini","Reinstalli il sistema operativo come primo intervento"],a:1,exp:"Raccogliere informazioni precise prima di intervenire è fondamentale per identificare correttamente il problema ed evitare interventi inutili o dannosi."},
-  {cat:"Problem Solving",q:"Sei l'unico tecnico disponibile e ricevi simultaneamente tre richieste: server aziendale non raggiungibile, PC lento, stampante non funzionante. Come stabilisci la priorità?",opts:["Inizi dalla stampante perché è fisicamente il dispositivo più semplice da riparare","Inizi dal PC lento perché probabilmente richiede meno tempo","Inizi dal server perché un suo malfunzionamento impatta potenzialmente tutti gli utenti","Gestisci tutte e tre le richieste contemporaneamente per non far aspettare nessuno"],a:2,exp:"La priorità deve sempre essere assegnata al problema con il maggiore impatto sul business. Un server non raggiungibile può bloccare l'intera operatività aziendale."},
-  {cat:"Problem Solving",q:"Ti viene assegnata un'attività che non hai mai eseguito prima. Qual è l'approccio professionale corretto?",opts:["Dichiari di non essere in grado di svolgere l'attività e la rifiuti","Cerchi documentazione, consulti colleghi esperti e ti impegni a portare a termine il compito","Aspetti che sia qualcun altro ad assumersi la responsabilità dell'attività","Procedi basandoti su ipotesi senza documentarti, per non perdere tempo"],a:1,exp:"La disponibilità ad apprendere cose nuove, documentarsi e chiedere supporto è una delle caratteristiche fondamentali di un professionista IT efficace."},
-  {cat:"Problem Solving",q:"Qual è la descrizione più accurata di un approccio metodico alla risoluzione dei problemi tecnici?",opts:["Applicare soluzioni casuali finché una di esse funziona per tentativi ed errori","Identificare il problema, raccogliere dati, formulare ipotesi, testare soluzioni e documentare il risultato","Riavviare sempre il dispositivo come prima azione diagnostica indipendentemente dal problema","Contattare immediatamente il fornitore del dispositivo senza effettuare verifiche preliminari"],a:1,exp:"Un metodo sistematico — identificare, analizzare, ipotizzare, testare, verificare e documentare — è significativamente più efficace del trial and error casuale."},
-  {cat:"Problem Solving",q:"Hai terminato un'attività prima del tempo previsto. Qual è la risposta professionale più appropriata?",opts:["Rimani inattivo fino alla scadenza originale pianificata","Segnali al responsabile il completamento anticipato e chiedi se ci sono attività prioritarie su cui contribuire","Te ne vai prima del termine del turno lavorativo","Navighi liberamente su Internet fino alla scadenza dell'orario di lavoro"],a:1,exp:"Comunicare proattivamente il completamento di un'attività e rendersi disponibile per altre priorità è un segnale chiaro di orientamento al risultato e professionalità."},
-  {cat:"Problem Solving",q:"Prima di applicare modifiche significative a un sistema in produzione, qual è la sequenza di azioni corretta?",opts:["Applicare le modifiche direttamente in produzione senza preparazione preventiva","Eseguire un backup completo, definire una finestra di manutenzione comunicata e preparare un piano di rollback","Applicare le modifiche in orario notturno senza comunicarlo preventivamente al team","Testare le modifiche direttamente in ambiente di produzione per validità dei risultati"],a:1,exp:"Backup preventivo, pianificazione della manutenzione e piano di rollback sono pratiche non negoziabili per minimizzare i rischi in produzione."},
-  {cat:"Problem Solving",q:"Durante un'attività di manutenzione identifichi una vulnerabilità di sicurezza nel sistema. Come agisci?",opts:["La ignori se non causa problemi visibili agli utenti in questo momento","La segnali immediatamente al responsabile della sicurezza e la documenti dettagliatamente","La risolvi autonomamente senza informare nessuno per gestire il problema prima che altri lo scoprano","Aspetti che qualcun altro la identifichi e la riporti"],a:1,exp:"Le vulnerabilità di sicurezza devono essere segnalate immediatamente. Agire da soli senza comunicarlo può creare responsabilità legali e organizzative."},
-  {cat:"Problem Solving",q:"Stai progettando l'infrastruttura di rete per un nuovo ufficio. Qual è il primo elemento da definire?",opts:["Acquistare i cavi e i componenti fisici necessari","Definire lo schema di indirizzamento IP e la topologia di rete prima di qualsiasi acquisto","Procedere all'installazione fisica dei PC e delle workstation","Scegliere il browser web da standardizzare nell'ufficio"],a:1,exp:"Definire l'architettura logica prima di qualsiasi acquisto fisico evita problemi costosi da correggere durante o dopo l'implementazione."},
-  {cat:"Problem Solving",q:"Qual è la differenza concettuale tra un sintomo e la causa radice di un problema tecnico?",opts:["Non esiste differenza concettuale: sintomo e causa sono la stessa cosa","Il sintomo è ciò che si osserva (PC lento), la causa radice è il problema sottostante (disco pieno o malware)","La causa radice è sempre evidente nell'osservazione del sintomo","I sintomi sono sempre più gravi e urgenti della causa radice"],a:1,exp:"Distinguere i sintomi dalla causa radice è fondamentale per risolvere i problemi in modo definitivo invece di applicare soluzioni temporanee che non eliminano il problema."},
-  {cat:"Problem Solving",q:"Viene introdotto in azienda un nuovo strumento di gestione dei ticket che sostituisce il precedente. Come ti approcci al cambiamento?",opts:["Continui ad usare il vecchio strumento finché non ti viene imposto diversamente","Ti formi attivamente sul nuovo strumento, leggi la documentazione e pratichi per padroneggiarlo rapidamente","Aspetti che qualcuno ti insegni tutto senza prendere iniziativa autonoma","Manifesti apertamente le tue perplessità sul cambiamento rifiutando di utilizzare il nuovo strumento"],a:1,exp:"L'adattabilità tecnologica e la proattività nell'apprendimento sono competenze essenziali in un ambiente IT in continua evoluzione."},
-  {cat:"Problem Solving",q:"Un cliente o un collega ti chiede di implementare una soluzione che tecnicamente ritieni scorretta. Come gestisci la situazione?",opts:["La implementi senza sollevare obiezioni per non creare attrito","Spieghi con professionalità le tue preoccupazioni tecniche e proponi un'alternativa migliore motivandola","Rifiuti categoricamente senza offrire alternative o spiegazioni","La implementi così come richiesto senza approfondire le conseguenze"],a:1,exp:"Un buon tecnico comunica le proprie competenze in modo costruttivo, proponendo alternative quando identifica rischi tecnici. È un valore aggiunto, non un ostacolo."},
+  {cat:"Problem Solving",type:"single",q:"Un utente non riesce ad aprire siti web ma la rete funziona. Cosa controlli per primo?",opts:["Riavvii il router","Reinstalli il browser","Chiami il provider","Verifichi la configurazione DNS del client"],a:3,exp:"Se la rete funziona ma i siti non si aprono, il problema è quasi certamente nella risoluzione DNS."},
+  {cat:"Problem Solving",type:"single",q:"Devi configurare 10 PC. Quale approccio è più efficiente?",opts:["IP statici su ogni PC manualmente","Hub invece di switch","Stesso IP su tutti i PC","Server DHCP per automatizzare l'assegnazione"],a:3,exp:"Il DHCP centralizza la configurazione di rete, riducendo errori e tempi."},
+  {cat:"Problem Solving",type:"single",q:"Non riesci a risolvere un problema dopo 2 ore. Cosa fai?",opts:["Continui in silenzio","Dici al cliente che non è risolvibile","Aspetti che si risolva","Chiedi aiuto a un collega esperto e documenti il problema"],a:3,exp:"Chiedere aiuto e documentare il problema è professionalità, non debolezza."},
+  {cat:"Problem Solving",type:"single",q:"Due PC hanno lo stesso IP nella rete. Cosa succede?",opts:["La rete diventa più veloce","Uno ottiene più banda","Nessun problema visibile","Conflitto IP con disconnessioni intermittenti per entrambi"],a:3,exp:"Un conflitto IP causa comportamenti imprevedibili e disconnessioni per entrambi i dispositivi."},
+  {cat:"Problem Solving",type:"single",q:"Internet è lento solo al pomeriggio. Causa più probabile?",opts:["Router difettoso","PC infetto da virus","Cavo Ethernet danneggiato","Congestione della rete o del provider nelle ore di punta"],a:3,exp:"La lentezza in fasce orarie specifiche indica tipicamente congestione durante le ore di picco."},
+  {cat:"Problem Solving",type:"single",q:"Arrivano due richieste urgenti mentre sei impegnato. Cosa fai?",opts:["Abbandoni la prima","Ignori la seconda","Gestisci entrambe rischiando errori","Comunichi la situazione al responsabile e chiedi come prioritizzare"],a:3,exp:"Comunicare al responsabile permette di prendere la decisione giusta sulla priorità."},
+  {cat:"Problem Solving",type:"single",q:"Una tua modifica ha causato un disservizio. Cosa fai?",opts:["Cerchi di sistemare in silenzio","Attribuisci la colpa ad altri","Aspetti che qualcuno se ne accorga","Comunichi subito al responsabile, ripristini la config e documenti l'evento"],a:3,exp:"Trasparenza immediata, ripristino e documentazione minimizzano il danno e prevengono la ripetizione."},
+  {cat:"Problem Solving",type:"single",q:"Un PC raggiunge Internet ma non il server interno. Causa più probabile?",opts:["Il PC non ha Internet","Il browser è da aggiornare","Il DNS pubblico non funziona","Problema di routing interno, firewall o server non operativo"],a:3,exp:"Se Internet funziona, il problema è specifico alla rete interna: routing, firewall o server stesso."},
+  {cat:"Problem Solving",type:"single",q:"Un cliente è arrabbiato per un problema irrisolto da giorni. Come agisci?",opts:["Lo ignori finché non hai la soluzione","Dici che non è colpa vostra","Suggerisci di rivolgersi altrove","Ascolti, riconosci il disagio, aggiorni sullo stato e dai tempi realistici"],a:3,exp:"Empatia, comunicazione proattiva e aggiornamenti regolari sono fondamentali con clienti frustrati."},
+  {cat:"Problem Solving",type:"single",q:"La stampante di rete non funziona per nessuno. Primo passo?",opts:["Reinstalli driver su tutti i PC","Compri una nuova stampante","Riavvii tutti i PC","Verifichi stato fisico, connettività di rete e IP della stampante"],a:3,exp:"Verificare lo stato del dispositivo centrale prima di intervenire su client o infrastruttura."},
+  {cat:"Problem Solving",type:"single",q:"Quale pratica distingue un buon tecnico IT?",opts:["Risolvere senza documentare","Tenere le soluzioni per sé","Non comunicare problemi aperti","Documentare ogni intervento, configurazione e modifica in modo dettagliato"],a:3,exp:"La documentazione sistematica accelera risoluzioni future e garantisce continuità operativa."},
+  {cat:"Problem Solving",type:"single",q:"Un utente dice 'il computer non funziona'. Come procedi?",opts:["Riavvii senza fare domande","Sostituisci il PC","Reinstalli Windows","Fai domande specifiche per capire cosa non funziona, da quando e in che contesto"],a:3,exp:"Raccogliere informazioni precise prima di intervenire è fondamentale per diagnosi corrette."},
+  {cat:"Problem Solving",type:"single",q:"Server giù, PC lento, stampante rotta: da dove inizi?",opts:["Dalla stampante (più semplice)","Dal PC lento (meno tempo)","Da tutte e tre contemporaneamente","Dal server, perché impatta potenzialmente tutti gli utenti"],a:3,exp:"La priorità va al problema con maggiore impatto sul business: il server giù blocca tutti."},
+  {cat:"Problem Solving",type:"single",q:"Ti viene assegnato un compito mai fatto prima. Cosa fai?",opts:["Lo rifiuti","Aspetti che altri lo facciano","Improvvisi senza documentarti","Cerchi documentazione, consulti esperti e ti impegni a portarlo a termine"],a:3,exp:"Disponibilità ad apprendere e chiedere supporto è fondamentale in un tecnico IT."},
+  {cat:"Problem Solving",type:"single",q:"Qual è l'approccio metodico alla risoluzione dei problemi?",opts:["Soluzioni casuali finché una funziona","Riavvii sempre per prima cosa","Chiami subito il fornitore","Identificare, raccogliere dati, formulare ipotesi, testare, documentare"],a:3,exp:"Un metodo sistematico è molto più efficace del trial and error casuale."},
+  {cat:"Problem Solving",type:"single",q:"Finisci un'attività prima del previsto. Cosa fai?",opts:["Aspetti inattivo fino alla scadenza","Te ne vai prima","Navighi su Internet","Segnali al responsabile e chiedi se ci sono altre priorità su cui contribuire"],a:3,exp:"Comunicare il completamento e rendersi disponibile dimostra proattività."},
+  {cat:"Problem Solving",type:"single",q:"Prima di modificare un sistema in produzione, cosa fai?",opts:["Modifichi direttamente","Testi in produzione","Apporti le modifiche di notte","Esegui backup, pianifichi manutenzione e prepari piano di rollback"],a:3,exp:"Backup, pianificazione e rollback plan sono pratiche non negoziabili prima di modifiche in produzione."},
+  {cat:"Problem Solving",type:"single",q:"Trovi una vulnerabilità di sicurezza. Cosa fai?",opts:["La ignori se non causa problemi visibili","La risolvi da solo senza dirlo a nessuno","Aspetti che qualcuno la scopra","La segnali immediatamente al responsabile della sicurezza e la documenti"],a:3,exp:"Le vulnerabilità di sicurezza vanno sempre segnalate immediatamente."},
+  {cat:"Problem Solving",type:"single",q:"Stai progettando una nuova rete per un ufficio. Cosa pianifichi per primo?",opts:["Acquisti i cavi","Installi i PC","Scegli il browser","Definisci schema IP e topologia di rete prima di qualsiasi acquisto"],a:3,exp:"Pianificare l'architettura logica prima di qualsiasi acquisto fisico evita problemi costosi."},
+  {cat:"Problem Solving",type:"single",q:"Qual è la differenza tra sintomo e causa radice?",opts:["Non c'è differenza","La causa è sempre evidente dal sintomo","Il sintomo è sempre più grave","Il sintomo è ciò che si osserva; la causa radice è il problema sottostante"],a:3,exp:"Distinguere sintomi dalla causa radice è fondamentale per soluzioni definitive."},
+  {cat:"Problem Solving",type:"single",q:"Un cliente chiede una soluzione che ritieni scorretta. Come agisci?",opts:["La implementi senza obiezioni","La rifiuti senza spiegazioni","La implementi senza approfondire","Spieghi le tue preoccupazioni tecniche e proponi un'alternativa motivata"],a:3,exp:"Un buon tecnico comunica le proprie competenze in modo costruttivo proponendo alternative."},
+  {cat:"Problem Solving",type:"single",q:"Viene introdotto un nuovo software aziendale. Come ti approcci?",opts:["Continui ad usare il vecchio","Aspetti che ti insegnino tutto","Ti lamenti del cambiamento","Ti formi attivamente, leggi la documentazione e pratichi per padroneggiarlo"],a:3,exp:"L'adattabilità tecnologica e la proattività nell'apprendimento sono essenziali in IT."},
+  {cat:"Problem Solving",type:"single",q:"Un collega ti chiede aiuto mentre sei molto impegnato. Come rispondi?",opts:["Lo ignori","Lasci il tuo lavoro immediatamente","Gli dici che non è un problema tuo","Spieghi la tua situazione, valuti brevemente e organizza quando puoi aiutarlo"],a:3,exp:"Bilanciare disponibilità ai colleghi con le proprie responsabilità comunicando apertamente."},
+  {cat:"Problem Solving",type:"single",q:"Un utente ha cancellato per errore file importanti. Prima cosa?",opts:["Dici che non si può fare niente","Formatti il PC","Reinstalli il sistema operativo","Verifichi se esiste un backup e eviti di scrivere sul disco per non sovrascrivere"],a:3,exp:"Il backup è la prima risorsa. Evitare scritture preserva la possibilità di recupero."},
+  {cat:"Problem Solving",type:"single",q:"Cosa significa 'lavorare in autonomia'?",opts:["Non chiedere mai aiuto","Fare solo ciò che è esplicitamente richiesto","Ignorare le procedure","Gestire le proprie attività e prendere iniziative senza supervisione costante"],a:3,exp:"L'autonomia significa gestire responsabilmente il proprio lavoro sapendo quando confrontarsi con il team."},
+  {cat:"Problem Solving",type:"single",q:"Qual è la prima azione quando un server aziendale non risponde?",opts:["Contatti subito il fornitore","Reinstalli il sistema operativo","Aspetti che si risolva da solo","Verifichi connettività, stato del servizio e log di sistema prima di qualsiasi intervento"],a:3,exp:"Raccogliere informazioni dal sistema prima di intervenire evita interventi inutili o dannosi."},
+  {cat:"Problem Solving",type:"single",q:"Come gestisci un progetto con una scadenza ravvicinata?",opts:["Lavori senza pianificare","Chiedi una proroga senza tentare","Dici al cliente che non è possibile","Identifichi le attività critiche, pianifichi le risorse e comunichi proattivamente i rischi"],a:3,exp:"Pianificazione delle priorità e comunicazione proattiva dei rischi sono fondamentali sotto pressione."},
+  {cat:"Problem Solving",type:"single",q:"Un cliente ti chiama fuori orario per un'emergenza. Cosa fai?",opts:["Non rispondi","Dici che non è il tuo problema","Aspetti il giorno dopo senza comunicare","Valuti la gravità, rispondi se è critico e in ogni caso gestisci la comunicazione"],a:3,exp:"In contesti IT la gestione delle emergenze richiede valutazione della gravità e comunicazione responsabile."},
+  {cat:"Problem Solving",type:"single",q:"Come verifichi che un intervento di manutenzione abbia avuto successo?",opts:["Chiudi il ticket senza verificare","Dici al cliente che è risolto senza testare","Aspetti che il cliente segnali problemi","Testi le funzionalità impattate e confirmi con l'utente prima di chiudere il ticket"],a:3,exp:"Verificare il corretto funzionamento prima di chiudere garantisce qualità e soddisfazione del cliente."},
+  {cat:"Problem Solving",type:"single",q:"Ricevi feedback negativo su un tuo intervento. Come reagisci?",opts:["Lo ignori","Ti giustifichi senza ascoltare","Ti arrabbi con il cliente","Ascolti, comprendi il problema, ti scusi se necessario e impari per migliorare"],a:3,exp:"Il feedback negativo è un'opportunità di crescita. Ascoltare e migliorare è la risposta professionale."},
+  {cat:"Problem Solving",type:"multi",q:"Quali azioni sono corrette quando si scopre una vulnerabilità di sicurezza?",opts:["Segnalarla immediatamente al responsabile","Ignorarla se non causa problemi visibili","Documentarla dettagliatamente","Valutare l'impatto potenziale","Risolverla da soli senza comunicarlo"],a:[0,2,3],exp:"Le vulnerabilità vanno segnalate immediatamente, documentate e valutate. Mai gestirle da soli in silenzio."},
+  {cat:"Problem Solving",type:"multi",q:"Quali sono buone pratiche prima di modificare un sistema in produzione?",opts:["Eseguire un backup completo","Modificare direttamente senza preparazione","Preparare un piano di rollback","Pianificare una finestra di manutenzione","Comunicare l'intervento al team"],a:[0,2,3,4],exp:"Prima di modificare produzione: backup, piano di rollback, finestra di manutenzione e comunicazione al team."},
+  {cat:"Problem Solving",type:"multi",q:"Quali elementi fanno parte di un approccio sistematico ai problemi IT?",opts:["Identificare chiaramente il problema","Provare soluzioni casuali","Raccogliere informazioni e log","Formulare e testare ipotesi","Documentare la soluzione trovata"],a:[0,2,3,4],exp:"Un approccio metodico include: identificare, raccogliere dati, ipotizzare, testare e documentare."},
+  {cat:"Problem Solving",type:"multi",q:"Quali comportamenti dimostrano professionalità in un tecnico IT?",opts:["Documentare gli interventi","Tenere le soluzioni per sé","Comunicare proattivamente i problemi","Rispettare le scadenze","Chiedere aiuto quando necessario"],a:[0,2,3,4],exp:"Professionalità in IT include documentazione, comunicazione proattiva, rispetto delle scadenze e saper chiedere aiuto."},
+  {cat:"Problem Solving",type:"multi",q:"Quali sono cause comuni di un PC che non riesce a navigare su Internet?",opts:["Configurazione DNS errata","Monitor danneggiato","Default gateway non configurato","Scheda di rete disabilitata","Tastiera non funzionante"],a:[0,2,3],exp:"DNS errato, gateway mancante o scheda di rete disabilitata sono cause comuni di mancata navigazione."},
+  {cat:"Problem Solving",type:"multi",q:"Quali informazioni sono utili per diagnosticare un problema di rete?",opts:["IP del dispositivo","Colore del cavo","Subnet mask","Default gateway","Marca del monitor"],a:[0,2,3],exp:"IP, subnet mask e gateway sono le informazioni fondamentali per diagnosticare problemi di rete."},
+  {cat:"Problem Solving",type:"multi",q:"Quali azioni sono appropriate per gestire un cliente arrabbiato?",opts:["Ascoltare attivamente","Ignorarlo fino alla soluzione","Riconoscere il disagio causato","Fornire aggiornamenti regolari sullo stato","Dare tempi realistici di risoluzione"],a:[0,2,3,4],exp:"Con clienti frustrati: ascoltare, riconoscere il problema, aggiornare regolarmente e dare tempi realistici."},
+  {cat:"Problem Solving",type:"multi",q:"Quali sono caratteristiche di un tecnico IT autonomo?",opts:["Gestisce le proprie attività senza supervisione costante","Non chiede mai aiuto a nessuno","Sa riconoscere quando escalare un problema","Prende iniziativa proattivamente","Fa solo ciò che gli viene esplicitamente chiesto"],a:[0,2,3],exp:"Autonomia significa gestire il lavoro indipendentemente, sapere quando escalare e prendere iniziativa."},
+  {cat:"Problem Solving",type:"multi",q:"Quali sono passi corretti per gestire una segnalazione di incidente IT?",opts:["Documentare l'incidente","Ignorarlo se non sembra grave","Identificare la causa radice","Implementare misure correttive","Comunicare l'esito al team e al cliente"],a:[0,2,3,4],exp:"Un incidente va documentato, analizzato per la causa radice, corretto e comunicato a tutte le parti."},
+  {cat:"Problem Solving",type:"multi",q:"Quali sono buone abitudini per la gestione del tempo in IT?",opts:["Prioritizzare in base all'impatto sul business","Gestire tutto contemporaneamente","Comunicare proattivamente i ritardi","Suddividere attività complesse in sotto-attività","Ignorare le richieste a bassa priorità"],a:[0,2,3],exp:"Prioritizzazione per impatto, comunicazione proattiva e suddivisione delle attività sono le chiavi."},
+  {cat:"Problem Solving",type:"multi",q:"Quali affermazioni sulla documentazione tecnica sono corrette?",opts:["Deve essere aggiornata quando i sistemi cambiano","Serve solo agli sviluppatori","Accelera la risoluzione di problemi futuri","Deve includere procedure step-by-step","È opzionale in ambienti piccoli"],a:[0,2,3],exp:"La documentazione va aggiornata, accelera le risoluzioni future e deve includere procedure dettagliate."},
 ];
 
 const CATS=["Networking","Inglese Tecnico","Problem Solving"];
 const CAT_LABELS={"Networking":"Networking","Inglese Tecnico":"Inglese Tecnico","Problem Solving":"Problem Solving"};
 
 function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-function pickQ(){return shuffle([...shuffle(NETWORKING_Q).slice(0,10),...shuffle(ENGLISH_Q).slice(0,10),...shuffle(LOGIC_Q).slice(0,10)]);}
+
+function shuffleOpts(q){
+  if(q.type==="multi"){
+    const correctTexts=q.a.map(i=>q.opts[i]);
+    const shuffled=shuffle([...q.opts]);
+    return {...q,opts:shuffled,a:correctTexts.map(t=>shuffled.indexOf(t))};
+  }
+  const correctText=q.opts[q.a];
+  const shuffled=shuffle([...q.opts]);
+  return {...q,opts:shuffled,a:shuffled.indexOf(correctText)};
+}
+
+function pickQ(){
+  const net=shuffle(NETWORKING_Q).slice(0,10).map(shuffleOpts);
+  const eng=shuffle(ENGLISH_Q).slice(0,10).map(shuffleOpts);
+  const log=shuffle(LOGIC_Q).slice(0,10).map(shuffleOpts);
+  return shuffle([...net,...eng,...log]);
+}
+
 function genCode(){return Math.random().toString(36).substr(2,8).toUpperCase();}
 
 const VERDICT=s=>{
-  if(s<=10)return{label:"Resisti!",color:"#92400e",bg:"#fef3c7",desc:"Il percorso è ancora lungo, ma ogni esperto è stato un principiante. Con impegno e dedizione si cresce!"};
-  if(s<=18)return{label:"Ci siamo quasi!",color:"#1d4ed8",bg:"#dbeafe",desc:"Buone basi e qualche lacuna da colmare. Il potenziale c'è — continua a lavorarci!"};
-  if(s<=24)return{label:"Campione",color:"#166534",bg:"#dcfce7",desc:"Solide competenze tecniche e buona capacità operativa. Ottimo lavoro sul serio!"};
+  if(s<=10)return{label:"Resisti!",color:"#92400e",bg:"#fef3c7",desc:"Il percorso è ancora lungo, ma con impegno si cresce!"};
+  if(s<=18)return{label:"Ci siamo quasi!",color:"#1d4ed8",bg:"#dbeafe",desc:"Buone basi e qualche lacuna da colmare. Il potenziale c'è!"};
+  if(s<=24)return{label:"Campione",color:"#166534",bg:"#dcfce7",desc:"Solide competenze tecniche e buona autonomia operativa!"};
   return{label:"Leggenda",color:"#0D1B6E",bg:"#e8ecf8",desc:"Preparazione eccellente su tutti i fronti. Benvenuto nel team Kaplet!"};
 };
 
@@ -275,7 +335,7 @@ function h(tag,attrs,children){
   return el;
 }
 
-let S={phase:"intro",form:{nome:"",cognome:"",data:""},questions:[],current:0,answers:{},chosen:null,code:genCode(),emailStatus:"idle",timeLeft:TOTAL_TIME};
+let S={phase:"intro",form:{nome:"",cognome:"",data:""},questions:[],current:0,answers:{},chosen:null,multiSelected:[],code:genCode(),emailStatus:"idle",timeLeft:TOTAL_TIME};
 let timerInt=null;
 
 function startTimer(){
@@ -293,17 +353,25 @@ function startTimer(){
   },1000);
 }
 
+function isCorrect(q,ans){
+  if(q.type==="multi"){
+    const sorted=a=>[...a].sort((x,y)=>x-y);
+    return JSON.stringify(sorted(ans))===JSON.stringify(sorted(q.a));
+  }
+  return ans===q.a;
+}
+
 function doFinish(timeout){
-  const fs=Object.keys(S.answers).filter(i=>S.answers[i]===S.questions[i]?.a).length;
+  const fs=S.questions.reduce((sum,q,i)=>sum+(S.answers[i]!==undefined&&isCorrect(q,S.answers[i])?1:0),0);
   const cs={};CATS.forEach(c=>{cs[c]={ok:0,tot:0};});
-  S.questions.forEach((q,i)=>{if(cs[q.cat]){cs[q.cat].tot++;if(S.answers[i]===q.a)cs[q.cat].ok++;}});
+  S.questions.forEach((q,i)=>{if(cs[q.cat]){cs[q.cat].tot++;if(S.answers[i]!==undefined&&isCorrect(q,S.answers[i]))cs[q.cat].ok++;}});
   const det=CATS.map(c=>`${CAT_LABELS[c]}: ${cs[c]?.ok||0}/${cs[c]?.tot||0}`).join("\n");
   const vd=VERDICT(fs);
   S.phase="result";S.emailStatus="sending";
   render();
   sendEmail({nome:S.form.nome,cognome:S.form.cognome,data:S.form.data,codice:S.code,punteggio:fs+(timeout?" (tempo scaduto)":""),giudizio:vd.label,dettaglio:det})
-    .then(()=>{S.emailStatus="sent";const el=document.getElementById("ebanner");if(el){el.className="email-banner eb-sent";el.textContent="✓ Risultati inviati al team Kaplet";} })
-    .catch(()=>{S.emailStatus="error";const el=document.getElementById("ebanner");if(el){el.className="email-banner eb-error";el.textContent="⚠ Invio non riuscito — salva il PDF";} });
+    .then(()=>{S.emailStatus="sent";const el=document.getElementById("ebanner");if(el){el.className="email-banner eb-sent";el.textContent="✓ Risultati inviati al team Kaplet";}})
+    .catch(()=>{S.emailStatus="error";const el=document.getElementById("ebanner");if(el){el.className="email-banner eb-error";el.textContent="⚠ Invio non riuscito — salva il PDF";}});
 }
 
 function render(){
@@ -320,37 +388,32 @@ function renderIntro(){
   const hero=h("div",{className:"intro-hero"});
   hero.appendChild(h("div",{className:"tag"},"Selezione Tecnici"));
   hero.appendChild(h("h1",{},"Onboarding Valutation"));
-  hero.appendChild(h("p",{},"Un test strutturato per valutare le tue competenze tecniche, la conoscenza dell'inglese professionale e la capacità di risolvere problemi reali sul lavoro."));
+  hero.appendChild(h("p",{},"Un test strutturato per valutare competenze tecniche, inglese professionale e capacità di problem solving. Alcune domande richiedono più risposte corrette."));
   f.appendChild(hero);
   const grid=h("div",{className:"intro-grid"});
-  const cards=[
-    ["📋","30 domande","10 di Networking, 10 di Inglese Tecnico e 10 di Problem Solving. Le domande variano ad ogni sessione."],
-    ["⏱","30 minuti","Il timer parte non appena inizi il quiz. Se scade, il test si chiude automaticamente con il punteggio raggiunto."],
-    ["🎯","Valutazione onesta","Non ci sono risposte giuste o sbagliate in assoluto. Il test serve a capire il tuo livello attuale. Sii sincero."],
-    ["📧","Risultati immediati","Al termine vedrai il tuo punteggio con il dettaglio per categoria. I risultati saranno inviati automaticamente al team Kaplet."],
-  ];
-  cards.forEach(([icon,title,text])=>{
+  [["📋","30 domande","10 Networking, 10 Inglese Tecnico, 10 Problem Solving. Mix di domande a risposta singola e multipla."],
+   ["⏱","30 minuti","Il timer parte non appena inizi. Se scade il test si chiude automaticamente."],
+   ["🎯","Valutazione onesta","Non ci sono risposte 'trappola'. Il test valuta il tuo livello reale. Sii sincero."],
+   ["📧","Risultati immediati","Vedrai punteggio e dettaglio per categoria. I risultati saranno inviati al team Kaplet."]
+  ].forEach(([icon,title,text])=>{
     const c=h("div",{className:"intro-card"});
     c.appendChild(h("div",{className:"intro-card-icon"},icon));
     const t=h("div",{className:"intro-card-text"});
-    t.appendChild(h("h3",{},title));
-    t.appendChild(h("p",{},text));
+    t.appendChild(h("h3",{},title));t.appendChild(h("p",{},text));
     c.appendChild(t);grid.appendChild(c);
   });
   f.appendChild(grid);
   const warn=h("div",{className:"warning-strip"});
-  warn.innerHTML="<strong>⚠ Prima di iniziare:</strong> assicurati di avere 30 minuti liberi e una connessione stabile. Una volta avviato il quiz il timer non si ferma e non è possibile metterlo in pausa.";
+  warn.innerHTML="<strong>⚠ Prima di iniziare:</strong> assicurati di avere 30 minuti liberi e una connessione stabile. Il timer non si ferma una volta avviato.";
   f.appendChild(warn);
-  f.appendChild(h("div",{className:"cta-center"},[
-    h("button",{className:"btn btn-primary btn-lg",onClick:()=>{S.phase="info";render();}},"Inizia ora →")
-  ]));
+  f.appendChild(h("div",{className:"cta-center"},[h("button",{className:"btn btn-primary btn-lg",onClick:()=>{S.phase="info";render();}},"Inizia ora →")]));
   return f;
 }
 
 function renderInfo(){
   const card=h("div",{className:"form-card"});
   card.appendChild(h("h2",{},"I tuoi dati"));
-  card.appendChild(h("div",{className:"sub"},"Inserisci nome, cognome e data. Verranno inviati insieme al risultato del test."));
+  card.appendChild(h("div",{className:"sub"},"Inserisci nome, cognome e data. Verranno inviati insieme al risultato."));
   [["nome","Nome","text","Es. Marco"],["cognome","Cognome","text","Es. Rossi"],["data","Data","date",""]].forEach(([id,lbl,type,ph])=>{
     const fd=h("div",{className:"field"});
     fd.appendChild(h("label",{},lbl));
@@ -366,7 +429,7 @@ function renderInfo(){
     const d=document.getElementById("data").value;
     if(!n||!c||!d){document.getElementById("ferr").style.display="block";return;}
     S.form={nome:n,cognome:c,data:d};
-    S.questions=pickQ();S.current=0;S.answers={};S.chosen=null;S.timeLeft=TOTAL_TIME;
+    S.questions=pickQ();S.current=0;S.answers={};S.chosen=null;S.multiSelected=[];S.timeLeft=TOTAL_TIME;
     S.phase="quiz";render();startTimer();
   }},"Inizia il quiz →"));
   return card;
@@ -384,25 +447,65 @@ function renderQuiz(){
   top.appendChild(right);f.appendChild(top);
   f.appendChild(h("div",{className:"prog-wrap"},[h("div",{className:"prog-fill",style:"width:"+pct+"%"})]));
   const card=h("div",{className:"q-card"});
-  card.appendChild(h("span",{className:"q-cat-tag"},CAT_LABELS[q.cat]));
+  const tags=h("div",{className:"q-tags"});
+  tags.appendChild(h("span",{className:"q-cat-tag"},CAT_LABELS[q.cat]));
+  if(q.type==="multi")tags.appendChild(h("span",{className:"q-multi-tag"},"Risposta multipla"));
+  card.appendChild(tags);
   card.appendChild(h("div",{className:"q-text"},q.q));
-  q.opts.forEach((o,i)=>{
-    let cls="opt";
-    if(S.chosen!==null){if(i===q.a)cls+=" correct";else if(i===S.chosen)cls+=" wrong";}
-    const btn=h("button",{className:cls,onClick:()=>{
-      if(S.chosen!==null)return;
-      S.chosen=i;S.answers[S.current]=i;
-      render();
-    }},String.fromCharCode(65+i)+". "+o);
-    if(S.chosen!==null)btn.disabled=true;
-    card.appendChild(btn);
-  });
-  if(S.chosen!==null){
-    const ok=S.chosen===q.a;
+  if(q.type==="multi")card.appendChild(h("div",{className:"q-hint"},"Seleziona tutte le risposte corrette, poi clicca Conferma."));
+
+  const answered=S.answers[S.current]!==undefined;
+
+  if(q.type==="single"){
+    q.opts.forEach((o,i)=>{
+      let cls="opt";
+      if(answered){if(i===q.a)cls+=" correct";else if(i===S.answers[S.current])cls+=" wrong";}
+      const btn=h("button",{className:cls,onClick:()=>{
+        if(answered)return;
+        S.answers[S.current]=i;S.chosen=i;render();
+      }},String.fromCharCode(65+i)+". "+o);
+      if(answered)btn.disabled=true;
+      card.appendChild(btn);
+    });
+  } else {
+    const sel=answered?S.answers[S.current]:(S.multiSelected||[]);
+    q.opts.forEach((o,i)=>{
+      let cls="mopt";
+      if(answered){
+        const isCorrectOpt=q.a.includes(i);
+        const wasSelected=S.answers[S.current].includes(i);
+        if(isCorrectOpt&&wasSelected)cls+=" correct-checked";
+        else if(!isCorrectOpt&&wasSelected)cls+=" wrong-checked";
+        else if(isCorrectOpt&&!wasSelected)cls+=" correct-missed";
+        cls+=" disabled";
+      } else {
+        if(sel.includes(i))cls+=" selected";
+      }
+      const box=h("div",{className:"mopt-box"},[sel.includes(i)||answered&&q.a.includes(i)&&S.answers[S.current].includes(i)?h("svg",{viewBox:"0 0 12 12",width:"12",height:"12"},[(() => {const p=document.createElementNS("http://www.w3.org/2000/svg","path");p.setAttribute("d","M2 6l3 3 5-5");p.setAttribute("stroke","#fff");p.setAttribute("stroke-width","2");p.setAttribute("fill","none");return p;})()]):document.createTextNode("")]);
+      const row=h("div",{className:cls,onClick:()=>{
+        if(answered)return;
+        const idx=S.multiSelected.indexOf(i);
+        if(idx===-1)S.multiSelected.push(i);else S.multiSelected.splice(idx,1);
+        render();
+      }},[box,document.createTextNode(String.fromCharCode(65+i)+". "+o)]);
+      card.appendChild(row);
+    });
+    if(!answered){
+      const confirmBtn=h("button",{className:"confirm-btn",onClick:()=>{
+        if(!S.multiSelected||S.multiSelected.length===0)return;
+        S.answers[S.current]=[...S.multiSelected];S.multiSelected=[];render();
+      }},"Conferma risposta");
+      if(!S.multiSelected||S.multiSelected.length===0)confirmBtn.disabled=true;
+      card.appendChild(confirmBtn);
+    }
+  }
+
+  if(answered){
+    const ok=isCorrect(q,S.answers[S.current]);
     card.appendChild(h("div",{className:"feedback "+(ok?"ok":"ko")},(ok?"✓ Corretto! ":"✗ Risposta errata. ")+q.exp));
     const nav=h("div",{className:"nav-row"});
     nav.appendChild(h("button",{className:"btn btn-primary",onClick:()=>{
-      if(S.current<S.questions.length-1){S.current++;S.chosen=null;render();}
+      if(S.current<S.questions.length-1){S.current++;S.chosen=null;S.multiSelected=[];render();}
       else{clearInterval(timerInt);doFinish(false);}
     }},S.current<S.questions.length-1?"Prossima domanda →":"Vedi il risultato →"));
     card.appendChild(nav);
@@ -418,8 +521,8 @@ function renderQuiz(){
 function renderResult(){
   const f=document.createDocumentFragment();
   const cs={};CATS.forEach(c=>{cs[c]={ok:0,tot:0};});
-  S.questions.forEach((q,i)=>{if(cs[q.cat]){cs[q.cat].tot++;if(S.answers[i]===q.a)cs[q.cat].ok++;}});
-  const fs=Object.keys(S.answers).filter(i=>S.answers[i]===S.questions[i]?.a).length;
+  S.questions.forEach((q,i)=>{if(cs[q.cat]){cs[q.cat].tot++;if(S.answers[i]!==undefined&&isCorrect(q,S.answers[i]))cs[q.cat].ok++;}});
+  const fs=S.questions.reduce((sum,q,i)=>sum+(S.answers[i]!==undefined&&isCorrect(q,S.answers[i])?1:0),0);
   const vd=VERDICT(fs);
   const hero=h("div",{className:"result-hero"});
   hero.appendChild(h("div",{className:"result-code"},"CODICE SESSIONE: "+S.code));
@@ -432,9 +535,8 @@ function renderResult(){
   hero.appendChild(h("div",{className:"verdict-scale"},"0–10 Resisti! · 11–18 Ci siamo quasi! · 19–24 Campione · 25–30 Leggenda"));
   hero.appendChild(h("div",{className:"email-banner eb-sending",id:"ebanner"},"⏳ Invio risultati in corso..."));
   f.appendChild(hero);
-
   f.appendChild(h("div",{className:"sec-label"},"Punteggio per categoria"));
-  const grid=h("div",{className:"cat-grid",style:"margin-bottom:2rem"});
+  const grid=h("div",{className:"cat-grid"});
   CATS.forEach(c=>{
     const p=h("div",{className:"cat-pill"});
     p.appendChild(h("div",{className:"cl"},CAT_LABELS[c]));
@@ -442,26 +544,40 @@ function renderResult(){
     grid.appendChild(p);
   });
   f.appendChild(grid);
-
   f.appendChild(h("div",{className:"sec-label"},"Riepilogo risposte"));
   const list=h("div",{className:"review-list"});
   S.questions.forEach((q,i)=>{
-    const ok=S.answers[i]===q.a;
+    const ok=S.answers[i]!==undefined&&isCorrect(q,S.answers[i]);
     const item=h("div",{className:"review-item"});
     item.appendChild(h("span",{className:"ri-icon "+(ok?"ri-ok":"ri-err")},ok?"✓":"✗"));
     const body=h("div",{className:"ri-body"});
     body.appendChild(h("div",{className:"ri-q"},q.q));
-    if(!ok)body.appendChild(h("div",{className:"ri-wrong"},"Risposta data: "+(q.opts[S.answers[i]]||"Non risposta")));
-    body.appendChild(h("div",{className:"ri-right"},"Corretta: "+q.opts[q.a]));
+    if(!ok&&S.answers[i]!==undefined){
+      if(q.type==="multi"){
+        const givenTexts=(S.answers[i]||[]).map(idx=>q.opts[idx]).join(", ");
+        const correctTexts=q.a.map(idx=>q.opts[idx]).join(", ");
+        body.appendChild(h("div",{className:"ri-wrong"},"Risposta data: "+givenTexts));
+        body.appendChild(h("div",{className:"ri-right"},"Corrette: "+correctTexts));
+      } else {
+        body.appendChild(h("div",{className:"ri-wrong"},"Risposta data: "+q.opts[S.answers[i]]));
+        body.appendChild(h("div",{className:"ri-right"},"Corretta: "+q.opts[q.a]));
+      }
+    } else if(S.answers[i]===undefined){
+      body.appendChild(h("div",{className:"ri-wrong"},"Non risposta"));
+      if(q.type==="multi")body.appendChild(h("div",{className:"ri-right"},"Corrette: "+q.a.map(idx=>q.opts[idx]).join(", ")));
+      else body.appendChild(h("div",{className:"ri-right"},"Corretta: "+q.opts[q.a]));
+    }
     item.appendChild(body);
-    item.appendChild(h("span",{className:"ri-cat"},CAT_LABELS[q.cat]));
+    const catTag=h("div",{style:"display:flex;flex-direction:column;gap:4px;align-items:flex-end"});
+    catTag.appendChild(h("span",{className:"ri-cat"},CAT_LABELS[q.cat]));
+    if(q.type==="multi")catTag.appendChild(h("span",{style:"font-size:10px;padding:2px 8px;border-radius:999px;background:#ede9fe;color:#5b21b6;white-space:nowrap;font-weight:500"},"multipla"));
+    item.appendChild(catTag);
     list.appendChild(item);
   });
   f.appendChild(list);
-
   const btnRow=h("div",{className:"btn-row"});
   btnRow.appendChild(h("button",{className:"btn btn-outline",onClick:()=>window.print()},"Stampa / Salva PDF"));
-  btnRow.appendChild(h("button",{className:"btn btn-primary",onClick:()=>{clearInterval(timerInt);S={phase:"intro",form:{nome:"",cognome:"",data:""},questions:[],current:0,answers:{},chosen:null,code:genCode(),emailStatus:"idle",timeLeft:TOTAL_TIME};render();}},"Nuovo test"));
+  btnRow.appendChild(h("button",{className:"btn btn-primary",onClick:()=>{clearInterval(timerInt);S={phase:"intro",form:{nome:"",cognome:"",data:""},questions:[],current:0,answers:{},chosen:null,multiSelected:[],code:genCode(),emailStatus:"idle",timeLeft:TOTAL_TIME};render();}},"Nuovo test"));
   f.appendChild(btnRow);
   return f;
 }
