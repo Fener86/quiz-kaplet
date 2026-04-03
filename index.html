@@ -363,7 +363,7 @@ function rIntro(){
   f.appendChild(hero);
   const grid=h("div",{className:"intro-grid"});
   [["📋","30 domande","10 Networking, 10 Inglese Tecnico, 10 Problem Solving. Domande diverse ad ogni sessione."],
-   ["⏱","30 minuti","Il timer parte non appena inizi. Se scade, il test si chiude automaticamente."],
+   ["⏱","20 minuti","Il timer parte non appena inizi. Se scade, il test si chiude automaticamente."],
    ["🎯","Sii onesto","Non ci sono risposte trappola. Il test valuta il tuo livello reale."],
    ["📧","Risultati immediati","Vedrai il punteggio con dettaglio per categoria. I risultati vanno al team Kaplet."]
   ].forEach(([icon,title,text])=>{
@@ -414,7 +414,7 @@ function rQuiz(){
   top.appendChild(h("span",{className:"quiz-name"},S.form.nome+" "+S.form.cognome));
   const right=h("div",{className:"quiz-right"});
   right.appendChild(h("span",{className:"quiz-counter"},(S.cur+1)+"/"+S.questions.length));
-  right.appendChild(h("div",{className:"timer",id:"tmr"},"⏱ 30:00"));
+  right.appendChild(h("div",{className:"timer",id:"tmr"},"⏱ 20:00"));
   top.appendChild(right);f.appendChild(top);
   f.appendChild(h("div",{className:"prog-wrap"},[h("div",{className:"prog-fill",style:"width:"+pct+"%"})]));
   const card=h("div",{className:"q-card"});
