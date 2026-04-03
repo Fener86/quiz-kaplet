@@ -110,7 +110,7 @@ body{font-family:'Roboto',sans-serif;background:#f7f8fc;color:#1a1a2e;min-height
 <div class="footer">© Kaplet — Uso interno</div>
 
 <script>
-const ES="service_it8h9pa",ET="template_ylarf5y",EK="BFRiR1c_sncLKV-cp",TT=30*60;
+const ES="service_it8h9pa",ET="template_ylarf5y",EK="BFRiR1c_sncLKV-cp",TT=20*60;
 
 // REGOLA: tutte le 4 opzioni hanno lunghezza simile — nessuna risposta corretta è più lunga delle altre
 const NQ=[
@@ -375,7 +375,7 @@ function rIntro(){
   });
   f.appendChild(grid);
   const w=h("div",{className:"warning-strip"});
-  w.innerHTML="<strong>⚠ Prima di iniziare:</strong> assicurati di avere 30 minuti liberi e connessione stabile. Il timer non si ferma.";
+  w.innerHTML="<strong>⚠ Prima di iniziare:</strong> assicurati di avere 20 minuti liberi e connessione stabile. Il timer non si ferma.";
   f.appendChild(w);
   f.appendChild(h("div",{className:"cta-center"},[h("button",{className:"btn btn-primary btn-lg",onClick:()=>{S.phase="info";render();}},"Inizia ora →")]));
   return f;
